@@ -991,10 +991,10 @@ async def clientBot(op):
                                 blocked = client.getBlockedContactIds()
                                 tiket = client.reissueUserTicket()
                                 ret_ = "╔══[My Info]"
-                                ret_ +="\n\n╠ Nick: {}".format(saya.displayName)
-                                ret_ +="\n╠ Friend: {}".format(str(len(temanku)))
-                                ret_ +="\n╠ Group: {}".format(str(len(grupku)))
-                                ret_ +="\n╠ Blocked: {}".format(str(len(blocked)))
+                                ret_ +="\n\n╠ 🇹🇭 Nick: {}".format(saya.displayName)
+                                ret_ +="\n╠ 🇹🇭 Friend: {}".format(str(len(temanku)))
+                                ret_ +="\n╠ 🇹🇭 Group: {}".format(str(len(grupku)))
+                                ret_ +="\n╠ 🇹🇭 Blocked: {}".format(str(len(blocked)))
                                 ret_ +="\n╚══ Ticket: {}".format("\nline.me/ti/p/"+str(tiket))
                                 client.sendMessage(msg.to,str(ret_))
                             elif cmd == "reboot":
@@ -1563,12 +1563,12 @@ async def clientBot(op):
                                     gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
                                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                                 ret_ = "╔══[Info Group]\n"
-                                ret_ += "\n╠ [Nama Group]\n{}".format(str(group.name))
-                                ret_ += "\n╠ [ID Group]\n{}".format(group.id)
-                                ret_ += "\n╠ [Group creator]\n{}".format(str(gCreator))
-                                ret_ += "\n╠ Amount Member : {}".format(str(len(group.members)))
-                                ret_ += "\n╠ Jumlah Pending : {}".format(gPending)
-                                ret_ += "\n╠ Group Qr : {}".format(gQr)
+                                ret_ += "\n╠ 🇹🇭 [Nama Group]\n{}".format(str(group.name))
+                                ret_ += "\n╠ 🇹🇭 [ID Group]\n{}".format(group.id)
+                                ret_ += "\n╠ 🇹🇭 [Group creator]\n{}".format(str(gCreator))
+                                ret_ += "\n╠ 🇹🇭 Amount Member : {}".format(str(len(group.members)))
+                                ret_ += "\n╠ 🇹🇭 Jumlah Pending : {}".format(gPending)
+                                ret_ += "\n╠ 🇹🇭 Group Qr : {}".format(gQr)
                                 ret_ += "\n╚══[ Group Ticket : {}".format(gTicket)
                                 client.sendMessage(to, str(ret_))
                                 client.sendImageWithURL(to, path)
@@ -3799,7 +3799,7 @@ async def clientBot(op):
                                            client.sendMessage(to, str(settings["save_mention"]))
                                            client.sendSticker(to,str(pkgid),str(stkid))
                                         else:
-                                           sendMention(to, "[AUTO RESPON]\nWoy @!,no tag me", [sender])
+                                           sendMention(to, "[ AUTO RESPON ]\nWoy @! no tag me", [sender])
                                            client.sendSticker(to,str(pkgid),str(stkid))
                                     break
                     elif msg.contentType == 7:
@@ -3808,9 +3808,9 @@ async def clientBot(op):
                             stk_ver = msg.contentMetadata['STKVER']
                             pkg_id = msg.contentMetadata['STKPKGID']
                             ret_ = "╔══[Sticker Info]\n"
-                            ret_ += "\n╠ STICKER ID : {}".format(stk_id)
-                            ret_ += "\n╠ STICKER PKGID : {}".format(pkg_id)
-                            ret_ += "\n╠ STICKER VERSION : {}".format(stk_ver)
+                            ret_ += "\n╠ 🇹🇭 STICKER ID : {}".format(stk_id)
+                            ret_ += "\n╠ 🇹🇭 STICKER PKGID : {}".format(pkg_id)
+                            ret_ += "\n╠ 🇹🇭 STICKER VERSION : {}".format(stk_ver)
                             ret_ += "\n╚══ STICKER URL : \nline://shop/detail/{}".format(pkg_id)
                             client.sendMessage(to, str(ret_))
                     elif msg.contentType == 13:
@@ -3827,10 +3827,10 @@ async def clientBot(op):
                                 except:
                                     pass
                                 ret_ = "╔══[Details Contact]\n"
-                                ret_ += "\n╠ Name : {}".format(str(contact.displayName))
-                                ret_ += "\n╠ MID : {}".format(str(msg.contentMetadata["mid"]))
-                                ret_ += "\n╠ Bio : {}".format(str(contact.statusMessage))
-                                ret_ += "\n╠ Photo URL : http://dl.profile.line-cdn.net/{}".format(str(contact.pictureStatus))
+                                ret_ += "\n╠ 🇹🇭 Name : {}".format(str(contact.displayName))
+                                ret_ += "\n╠ 🇹🇭 MID : {}".format(str(msg.contentMetadata["mid"]))
+                                ret_ += "\n╠ 🇹🇭 Bio : {}".format(str(contact.statusMessage))
+                                ret_ += "\n╠ 🇹🇭 Photo URL : http://dl.profile.line-cdn.net/{}".format(str(contact.pictureStatus))
                                 ret_ += "\n╚══ Cover URL : {}".format(str(cover))
                                 client.sendMessage(to, str(ret_))
                             except:
@@ -3895,9 +3895,9 @@ async def clientBot(op):
                             else:
                                 name_ = contact.displayName
                                 ret_ = "╔══[UNSEND MSG]\n\n"
-                                ret_ += "\n╠ Sender : @!"
-                                ret_ += "\n╠ Send At : {}".format(str(dt_to_str(cTime_to_datetime(msg_dict[msg_id]["createdTime"]))))
-                                ret_ += "\n╠ Type : {}".format(str(Type._VALUES_TO_NAMES[msg_dict[msg_id]["contentType"]]))
+                                ret_ += "\n╠ 🇹🇭 Sender : @!"
+                                ret_ += "\n╠ 🇹🇭 Send At : {}".format(str(dt_to_str(cTime_to_datetime(msg_dict[msg_id]["createdTime"]))))
+                                ret_ += "\n╠ 🇹🇭 Type : {}".format(str(Type._VALUES_TO_NAMES[msg_dict[msg_id]["contentType"]]))
                                 ret_ += "\n╚══ Text : {}".format(str(msg_dict[msg_id]["text"]))
                                 sendMention(at, str(ret_), [contact.mid])
                             del msg_dict[msg_id]
