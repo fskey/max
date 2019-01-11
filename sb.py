@@ -59,7 +59,7 @@ cctv = {
 
 settings = {
     "autoAdd": False,
-    "autoBlock": False,
+    "autoBlock": True,
     "autoJoin": False,
     "autoLeave": False,
     "groupParam": {},
@@ -85,7 +85,7 @@ settings = {
     "GroupSpam": {},
     "changeProfileVideo": False,
     "autoRespon": False,
-    "autoJoinTicket": False,
+    "autoJoinTicket": True,
     "checkContact": False,
     "checkPost": False,
     "checkSticker": False,
@@ -1226,7 +1226,7 @@ async def clientBot(op):
                             elif cmd.startswith("changename:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
-                                if len(string) <= 20:
+                                if len(string) <= 200:
                                     profile = client.getProfile()
                                     profile.displayName = string
                                     client.updateProfile(profile)
@@ -1234,7 +1234,7 @@ async def clientBot(op):
                             elif cmd.startswith("setname:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
-                                if len(string) <= 20:
+                                if len(string) <= 200:
                                     profile = client.getProfile()
                                     profile.displayName = string
                                     client.updateProfile(profile)
@@ -1242,7 +1242,7 @@ async def clientBot(op):
                             elif cmd.startswith("changebio:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
-                                if len(string) <= 5000:
+                                if len(string) <= 50000000:
                                     profile = client.getProfile()
                                     profile.statusMessage = string
                                     client.updateProfile(profile)
