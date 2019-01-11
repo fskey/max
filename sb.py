@@ -459,7 +459,7 @@ def helpmessage():
         key = key.title()
     else:
         key = ''
-    helpMessage =   "⚔⚔⚔Hᴇʟᴘ ʙᴏᴛˢᵏ⚔⚔⚔" + "\n\n" + \
+    helpMessage =   "sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n\n" + \
                     key + "⚅ Help" + "\n" + \
                     key + "⚅ Help Trans" + "\n" + \
                     key + "⚅ Help Media" + "\n" + \
@@ -498,8 +498,8 @@ def helpmessage():
                     key + "⚅ Rechat" + "\n" + \
                     key + "⚅ Refresh" + "\n" + \
                     key + "⚅ Tagall" + "\n" + \
-                    key + "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-                    "http://line.me/ti/p/~teambotprotect"
+                    key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+                    "http://line.me/ti/p/~maxsett"
     return helpMessage
 
 def helpsettings():
@@ -507,7 +507,7 @@ def helpsettings():
         key = settings['keyCommand']
     else:
         key = ''
-    helpSettings =  "⚔⚔⚔Hᴇʟᴘ sᴇᴛᴛɪɴɢs⚔⚔⚔" + "\n" + \
+    helpSettings =  "Hᴇʟᴘ sᴇᴛᴛɪɴɢs" + "\n" + \
                           key + "⚅ Add「On/Off」" + "\n" + \
                           key + "⚅ Join「On/Off」" + "\n" + \
                           key + "⚅ Ticket「On/Off」" + "\n" + \
@@ -535,8 +535,8 @@ def helpsettings():
                           key + "⚅ Setmention:「Query」" + "\n" + \
                           key + "⚅ Changename:「Query」" + "\n" + \
                           key + "⚅ Changebio:「Query」" + "\n" + \
-                          key + "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-                          "http://line.me/ti/p/~teambotprotect"
+                          key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+                          "http://line.me/ti/p/~maxsett"
     return helpSettings
 
 def helpmedia():
@@ -545,7 +545,7 @@ def helpmedia():
         key = key.title()
     else:
         key = ''
-    helpMedia =  "⚔⚔⚔Hᴇʟᴘ Mᴇᴅɪᴀ⚔⚔⚔" + "\n" + \
+    helpMedia =  "Hᴇʟᴘ Mᴇᴅɪᴀ" + "\n" + \
                key + "⚅ Ytmp3「Query」" + "\n" + \
                key + "⚅ Horoscop「Query」" + "\n" + \
                key + "⚅ Zodiak「Query」" + "\n" + \
@@ -565,8 +565,8 @@ def helpmedia():
                key + "⚅ Music「Search」" + "\n" + \
                key + "⚅ Lyric「Search」" + "\n" + \
                key + "⚅ Image「Search」" + "\n" + \
-               "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-               "http://line.me/ti/p/~teambotprotect"
+               "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+               "http://line.me/ti/p/~maxsett"
     return helpMedia
 
 def helpgroup():
@@ -575,7 +575,7 @@ def helpgroup():
         key = key.title()
     else:
         key = ''
-    helpGroup =  "⚔⚔⚔Hᴇʟᴘ Gʀᴏᴜᴘ⚔⚔⚔" + "\n" + \
+    helpGroup =  "Hᴇʟᴘ Gʀᴏᴜᴘ" + "\n" + \
               key + "⚅ Creator" + "\n" + \
               key + "⚅ Groupid" + "\n" + \
               key + "⚅ Groupname" + "\n" + \
@@ -589,8 +589,8 @@ def helpgroup():
               key + "⚅ Info group" + "\n" + \
               key + "⚅ Setgroupimage" + "\n" + \
               key + "⚅ Gn:「Query」" + "\n" + \
-              key + "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-              "http://line.me/ti/p/~teambotprotect"
+              key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+              "http://line.me/ti/p/~maxsett"
     return helpGroup
 
 def helpbot():
@@ -599,7 +599,7 @@ def helpbot():
         key = key.title()
     else:
         key = ''
-    helpBot =  "⚔⚔⚔Hᴇʟᴘ Bᴏᴛ⚔⚔⚔" + "\n" + \
+    helpBot =  "Hᴇʟᴘ Bᴏᴛ" + "\n" + \
           key + "⚅ Listblock" + "\n" + \
           key + "⚅ Block contact" + "\n" + \
           key + "⚅ Unblockall" + "\n" + \
@@ -643,8 +643,8 @@ def helpbot():
           key + "⚅ Spamtext:「text」" + "\n" + \
           key + "⚅ Spamtag 「Mention」" + "\n" + \
           key + "⚅ Call" + "\n" + \
-          key + "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-          "http://line.me/ti/p/~teambotprotect"
+          key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+          "http://line.me/ti/p/~maxsett"
     return helpBot
 
 def helptranslate():
@@ -652,7 +652,7 @@ def helptranslate():
         key = settings['keyCommand']
     else:
         key = ''
-    helpTranslate = "⚔⚔⚔Hᴇʟᴘ Tʀᴀɴs⚔⚔⚔" + "\n" + \
+    helpTranslate = "Hᴇʟᴘ Tʀᴀɴs" + "\n" + \
                     key + "⚅ af : afrikaans" + "\n" + \
                     key + "⚅ sq : albanian" + "\n" + \
                     key + "⚅ am : amharic" + "\n" + \
@@ -762,8 +762,8 @@ def helptranslate():
                     "\n" + \
                     "⚅ Contoh : " + key + "tr-id dhenza" + "\n" + \
                     "\n" + \
-                    key + "Sᴇʟғʙᴏᴛ ᴠ.10 By: TBP ˢᵏ" + "\n" + \
-                    "http://line.me/ti/p/~teambotprotect"
+                    key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
+                    "http://line.me/ti/p/~maxsett"
     return helpTranslate
 def cek(mid):
     if mid in ( clientMid):
@@ -1142,7 +1142,7 @@ async def clientBot(op):
 
                             elif cmd == "settings":
                                 try:
-                                    ret_ = "⚔⚔⚔Ststus Bot SKY⚔⚔⚔\n"
+                                    ret_ = "sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx\n"
                                     if settings["autoAdd"] == True: ret_ += "\n🔴 Auto Add  [+]"
                                     else: ret_ += "\n⚫ Auto Add  [-]"
                                     if settings["autoJoin"] == True: ret_ += "\n🔴 Auto Join  [+]"
@@ -1287,7 +1287,7 @@ async def clientBot(op):
                                 num = num[2].replace(' ','')
                                 midd = korban
                                 jumlah = int(num)
-                                if jumlah <= 500:
+                                if jumlah <= 500000:
                                     for var in range(0,jumlah):
                                         client.sendMessage(msg.to,"Sukses Spamming Grup!\nTarget: "+client.getContact(midd).displayName+"\nJumlah Grup Yang Di Spam: "+jumlah)
                                         client.findAndAddContactsByMid(midd)
@@ -1305,7 +1305,7 @@ async def clientBot(op):
                                 typen = "sticker"
                                 client.sendGift(to,code,typen)
                             elif cmd == "me":
-                                client.sendMessageMusic(to, title=client.getContact(sender).displayName, subText=str(client.getContact(sender).statusMessage), url='line.me/ti/p/~teambotprotect', iconurl="http://dl.profile.line-cdn.net/{}".format(client.getContact(sender).pictureStatus), contentMetadata={}) 
+                                client.sendMessageMusic(to, title=client.getContact(sender).displayName, subText=str(client.getContact(sender).statusMessage), url='line.me/ti/p/~maxsett', iconurl="http://dl.profile.line-cdn.net/{}".format(client.getContact(sender).pictureStatus), contentMetadata={}) 
                             elif cmd == "mymid":
                                 client.sendMessage(to, "[ MID ]\n{}".format(sender))
                             elif cmd == "myname":
