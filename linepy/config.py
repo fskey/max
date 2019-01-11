@@ -30,7 +30,7 @@ class Config(object):
     #APP_TYPE    = ApplicationType._VALUES_TO_NAMES[368]
     #APP_VER     = '7.14.0'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'Rendi'
+    SYSTEM_NAME = 'SELFBOT-BY:MAX'
     #SYSTEM_VER  = '10.12.0'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
