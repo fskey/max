@@ -58,7 +58,7 @@ cctv = {
 }
 
 settings = {
-    "autoAdd": False,
+    "autoAdd": True,
     "autoBlock": True,
     "autoJoin": False,
     "autoLeave": False,
@@ -84,8 +84,8 @@ settings = {
     "nilaiSpam": "1",
     "GroupSpam": {},
     "changeProfileVideo": False,
-    "autoRespon": False,
-    "autoJoinTicket": True,
+    "autoRespon": True,
+    "autoJoinTicket": False,
     "checkContact": False,
     "checkPost": False,
     "checkSticker": False,
@@ -781,8 +781,9 @@ async def clientBot(op):
             if settings["autoAdd"] == True:
                client.findAndAddContactsByMid(op.param1)
                sendMention(op.param1, "Hy @!,Thanx you for add me :3",[op.param2])
-            if settings["autoBlock"] == True:
-               client.blockContacts(op.param2)
+               client.blockContact(op.param1)
+            #if settings["autoBlock"] == True:
+               #client.blockContacts(op.param2)
 #-----------------------------------
 
         if op.type == 13:
