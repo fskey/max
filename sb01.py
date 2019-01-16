@@ -1775,7 +1775,7 @@ async def clientBot(op):
                                     pass
                                 else:
                                     client.sendMessage(receiver,"✒ กรุณาพิม เปิดอ่าน ก่อน")
-                            elif cmd.startswith("เพิ่มแอด "):
+                            elif cmd.startswith("เพิ่มพูดตาม"):
                                 targets = []
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
@@ -1789,7 +1789,7 @@ async def clientBot(op):
                                     except:
                                         client.sendMessage(msg.to,"Failid added target")
                                         break
-                            elif cmd.startswith("ลบแอด "):
+                            elif cmd.startswith("ลบพูดตาม"):
                                 targets = []
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
@@ -1804,26 +1804,26 @@ async def clientBot(op):
                                         client.sendMessage(msg.to,"Failid delated target")
                                         break
 
-                            elif cmd == "replay list":
+                            elif cmd == "รายการพูดตาม":
                                 if settings["mimic"]["target"] == {}:
                                     client.sendMessage(msg.to,"Nothing")
                                 else:
-                                    mc = "╔══Mimic List]]<=="
+                                    mc = "╔══[ รายการ ]<=="
                                     for mi_d in settings["mimic"]["target"]:
                                         mc += "\n╚══"+client.getContact(mi_d).displayName
                                     client.sendMessage(msg.to,mc)
 
-                            elif cmd.startswith("replay"):
+                            elif cmd.startswith("พูดตาม"):
                                 sep = text.split(" ")
                                 mic = text.replace(sep[0] + " ","")
-                                if mic == "on":
+                                if mic == "เปิด":
                                     if settings["mimic"]["status"] == False:
                                         settings["mimic"]["status"] = True
-                                        client.sendMessage(msg.to,"Reply Message on")
-                                elif mic == "off":
+                                        client.sendMessage(msg.to,"✒ เปิดพูดตามแล้ว")
+                                elif mic == "ปิด":
                                     if settings["mimic"]["status"] == True:
                                         settings["mimic"]["status"] = False
-                                        client.sendMessage(msg.to,"Reply Message off")
+                                        client.sendMessage(msg.to,"✒ ปิดพูดตามแล้ว")
 # Pembatas Script #
                             elif cmd.startswith("checkwebsite"):
                                 try:
@@ -2288,7 +2288,7 @@ async def clientBot(op):
                                 except Exception as e:
                                     client.sendText(msg.to,str(e))
 
-                            elif cmd.startswith("ytmp4 "):
+                            elif cmd.startswith("ยูทูป "):
                                 try:
                                     sep = msg.text.split(" ")
                                     textToSearch = msg.text.replace(sep[0] + " ","")
@@ -2311,11 +2311,11 @@ async def clientBot(op):
                                         me = best.url
                                         hasil = ""
                                         title = "Judul [ " + vid.title + " ]"
-                                        author = '\n\n❧Author : ' + str(vid.author)
-                                        durasi = '\n❧Duration : ' + str(vid.duration)
-                                        suka = '\n❧Likes : ' + str(vid.likes)
-                                        rating = '\n❧Rating : ' + str(vid.rating)
-                                        deskripsi = '\n❧Deskripsi : ' + str(vid.description)
+                                        author = '\n\n✒ Author : ' + str(vid.author)
+                                        durasi = '\n✒ Duration : ' + str(vid.duration)
+                                        suka = '\n✒ Likes : ' + str(vid.likes)
+                                        rating = '\n✒ Rating : ' + str(vid.rating)
+                                        deskripsi = '\n✒ Deskripsi : ' + str(vid.description)
                                     client.sendVideoWithURL(msg.to, me)
                                     client.sendText(msg.to,title+ author+ durasi+ suka+ rating+ deskripsi)
                                 except Exception as e:
@@ -2334,7 +2334,7 @@ async def clientBot(op):
                                      client.sendMessage(msg.to, str(ret_))
                                  except Exception as error:
                                      client.sendMessage(msg.to,str(error))
-                            elif cmd.startswith("image "):
+                            elif cmd.startswith("รูป "):
                                 sep = text.split(" ")
                                 txt = text.replace(sep[0] + " ","")
                                 url = requests.get("http://rahandiapi.herokuapp.com/imageapi?key=betakey&q={}".format(txt))
@@ -2351,8 +2351,8 @@ async def clientBot(op):
                                 except Exception as error:
                             	    pass 
                                                     
-                            elif cmd.startswith("music "):
-                                    search = text.lower().replace("music ","")
+                            elif cmd.startswith("เพลง "):
+                                    search = text.lower().replace("เพลง ","")
                                     params = {'songname': songname}
                                     r = requests.get('http://api.farzain.com/tiktok.php?country=id&apikey=cdajhjaS55d7gefeaO6qnEcb0&type&id=' + urllib.urlencode(params))
                                     data = r.text
@@ -2492,7 +2492,7 @@ async def clientBot(op):
                                 client.sendMessage(to, str(A))
 
 #==============================================================================#
-                            elif cmd.startswith("add image "):
+                            elif cmd.startswith("เพิ่มรูป "):
                                 #load()
                                 sep = text.split(" ")
                                 name = text.replace(sep[0] + " ","")
@@ -2503,10 +2503,10 @@ async def clientBot(op):
                                     images[str(name.lower())] = ""
                                     f = codecs.open('image.json','w','utf-8')
                                     json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                    client.sendMessage(to, "Send image to added")
+                                    client.sendMessage(to, "✒ ส่งรูป")
                                 else:
                                     client.sendMessage(to, "Gambar sudah di imagelist")
-                            elif cmd.startswith("del image "):
+                            elif cmd.startswith("ลบรูป "):
                                 #load()
                                 sep = text.split(" ")
                                 name = text.replace(sep[0] + " ","")
@@ -2519,7 +2519,7 @@ async def clientBot(op):
                                     client.sendMessage(to, "Success delated image {}".format(str(name.lower())))
                                 else:
                                     client.sendMessage(to, "Image not list")
-                            elif cmd.startswith("change image "):
+                            elif cmd.startswith("เปลี่ยนรูป "):
                                 #load()
                                 sep = text.split(" ")
                                 name = text.replace(sep[0] + " ","")
@@ -2533,14 +2533,14 @@ async def clientBot(op):
                                     client.sendMessage(to, "Send image ")
                                 else:
                                     client.sendMessage(to, "Image not list")
-                            elif cmd == "image list":
+                            elif cmd == "รูปที่เพิ่ม":
                                 #load()
                                 ret_ = "╔══[ List Images ]"
                                 for image in images:
                                     ret_ += "\n╠ " + image.title()
                                 ret_ += "\n╚══[ Total {} Images ]".format(str(len(images)))
                                 client.sendMessage(to, ret_)
-                            elif cmd.startswith("spamimage "):
+                            elif cmd.startswith("แสปมรูป "):
                                 #load()
                                 sep = text.split(" ")
                                 text = text.replace(sep[0] + " ","")
@@ -3820,10 +3820,10 @@ async def clientBot(op):
                             stk_id = msg.contentMetadata['STKID']
                             stk_ver = msg.contentMetadata['STKVER']
                             pkg_id = msg.contentMetadata['STKPKGID']
-                            ret_ = "╔══[Sticker Info]\n"
-                            ret_ += "\n╠ 🇹🇭 STICKER ID : {}".format(stk_id)
-                            ret_ += "\n╠ 🇹🇭 STICKER PKGID : {}".format(pkg_id)
-                            ret_ += "\n╠ 🇹🇭 STICKER VERSION : {}".format(stk_ver)
+                            ret_ = "╔══[ข้อมูลสติกเกอร์]\n"
+                            ret_ += "\n╠ ✒ STICKER ID : {}".format(stk_id)
+                            ret_ += "\n╠ ✒ STICKER PKGID : {}".format(pkg_id)
+                            ret_ += "\n╠ ✒ STICKER VERSION : {}".format(stk_ver)
                             ret_ += "\n╚══ STICKER URL : \nline://shop/detail/{}".format(pkg_id)
                             client.sendMessage(to, str(ret_))
                     elif msg.contentType == 13:
@@ -3839,12 +3839,12 @@ async def clientBot(op):
                                      client.sendImageWithURL(to, str(path))
                                 except:
                                     pass
-                                ret_ = "╔══[Details Contact]\n"
-                                ret_ += "\n╠ 🇹🇭 Name : {}".format(str(contact.displayName))
-                                ret_ += "\n╠ 🇹🇭 MID : {}".format(str(msg.contentMetadata["mid"]))
-                                ret_ += "\n╠ 🇹🇭 Bio : {}".format(str(contact.statusMessage))
-                                ret_ += "\n╠ 🇹🇭 Photo URL : http://dl.profile.line-cdn.net/{}".format(str(contact.pictureStatus))
-                                ret_ += "\n╚══ Cover URL : {}".format(str(cover))
+                                ret_ = "╔══[ข้อมูลจาก คท]\n"
+                                ret_ += "\n╠ ✒ ชื่อ : {}".format(str(contact.displayName))
+                                ret_ += "\n╠ ✒ ไอดี : {}".format(str(msg.contentMetadata["mid"]))
+                                ret_ += "\n╠ ✒ ตัส : {}".format(str(contact.statusMessage))
+                                ret_ += "\n╠ ✒ ลิ้งโปรไฟล์ : http://dl.profile.line-cdn.net/{}".format(str(contact.pictureStatus))
+                                ret_ += "\n╚ ✒ ลิ้งปก : {}".format(str(cover))
                                 client.sendMessage(to, str(ret_))
                             except:
                                 client.sendMessage(to, "Kontak tidak valid")
@@ -3908,9 +3908,9 @@ async def clientBot(op):
                             else:
                                 name_ = contact.displayName
                                 ret_ = "╔══[UNSEND MSG]\n\n"
-                                ret_ += "\n╠ 🇹🇭 Sender : @!"
-                                ret_ += "\n╠ 🇹🇭 Send At : {}".format(str(dt_to_str(cTime_to_datetime(msg_dict[msg_id]["createdTime"]))))
-                                ret_ += "\n╠ 🇹🇭 Type : {}".format(str(Type._VALUES_TO_NAMES[msg_dict[msg_id]["contentType"]]))
+                                ret_ += "\n╠ ✒ Sender : @!"
+                                ret_ += "\n╠ ✒ Send At : {}".format(str(dt_to_str(cTime_to_datetime(msg_dict[msg_id]["createdTime"]))))
+                                ret_ += "\n╠ ✒ Type : {}".format(str(Type._VALUES_TO_NAMES[msg_dict[msg_id]["contentType"]]))
                                 ret_ += "\n╚══ Text : {}".format(str(msg_dict[msg_id]["text"]))
                                 sendMention(at, str(ret_), [contact.mid])
                             del msg_dict[msg_id]
