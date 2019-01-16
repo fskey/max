@@ -1014,8 +1014,8 @@ async def clientBot(op):
                                 ret_ +="\n╠ 🇹🇭 Blocked: {}".format(str(len(blocked)))
                                 ret_ +="\n╚══ Ticket: {}".format("\nline.me/ti/p/"+str(tiket))
                                 client.sendMessage(msg.to,str(ret_))
-                            elif cmd == "reboot":
-                                client.sendMessage(to, "Please waiting for in 5 minutes")
+                            elif cmd == "รีบอท":
+                                client.sendMessage(to, "รอสักครู่ กำลังทำการรีบอท...")
                                 restartBot()
 # Pembatas Script #
                             elif cmd == "บล็อค เปิด":
@@ -1235,7 +1235,7 @@ async def clientBot(op):
                                 msgs+="\n\n━━━࿈ SELFBOT-BY:MAX : %i" % len(kontak)
                                 client.sendMessage(to, msgs)
                             elif cmd == "ผส":
-                                 client.sendContact(to, "00000000000000000000000000000000000000000000000000',")
+                                 client.sendContact(to, "u8020d8a04929e6c6b52bf6331e8db647")
                             elif cmd.startswith("เปลี่ยนชื่อ:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
@@ -1540,30 +1540,30 @@ async def clientBot(op):
                                         client.sendMessage(to, "[ ✒ ลิ้งกลุ่ม ]\nhttps://line.me/R/ti/g/{}".format(str(ticket)))
                                     else:
                                         client.sendMessage(to, "Grup qr closed silahkan buka terlebih dahulu dengan {}openqr".format(str(settings["keyCommand"])))
-                            elif cmd == 'qr on':
+                            elif cmd == 'เปิดลิ้ง':
                                 if msg.toType == 2:
                                     group = client.getGroup(to)
                                     if group.preventedJoinByTicket == False:
-                                        client.sendMessage(to, "Grup qr sudah terbuka")
+                                        client.sendMessage(to, "✒ ลิ้งเปิดอยู่แล้ว")
                                     else:
                                         group.preventedJoinByTicket = False
                                         client.updateGroup(group)
-                                        client.sendMessage(to, "Success membuka grup qr")
-                            elif cmd == 'qr off':
+                                        client.sendMessage(to, "✒ เปิดลิ้งเรียบร้อย")
+                            elif cmd == 'ปิดลิ้ง':
                                 if msg.toType == 2:
                                     group = client.getGroup(to)
                                     if group.preventedJoinByTicket == True:
-                                        client.sendMessage(to, "Grup qr sudah tertutup")
+                                        client.sendMessage(to, "✒ ลิ้งปิดอยู่แล้ว")
                                     else:
                                         group.preventedJoinByTicket = True
                                         client.updateGroup(group)
-                                        client.sendMessage(to, "Success off qr")
-                            elif cmd == 'info group':
+                                        client.sendMessage(to, "✒ ปิดลิ้งเรียบร้อย")
+                            elif cmd == 'ข้อมูลกลุ่ม':
                                 group = client.getGroup(to)
                                 try:
                                     gCreator = group.creator.displayName
                                 except:
-                                    gCreator = "Not Found"
+                                    gCreator = "✒ ไม่มีผู้สร้างไม่สามารถดูได้"
                                 if group.invitee is None:
                                     gPending = "0"
                                 else:
@@ -1575,14 +1575,14 @@ async def clientBot(op):
                                     gQr = "Opened"
                                     gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
                                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                                ret_ = "╔══[Info Group]\n"
-                                ret_ += "\n╠ 🇹🇭 [Nama Group]\n{}".format(str(group.name))
-                                ret_ += "\n╠ 🇹🇭 [ID Group]\n{}".format(group.id)
-                                ret_ += "\n╠ 🇹🇭 [Group creator]\n{}".format(str(gCreator))
-                                ret_ += "\n╠ 🇹🇭 Amount Member : {}".format(str(len(group.members)))
-                                ret_ += "\n╠ 🇹🇭 Jumlah Pending : {}".format(gPending)
-                                ret_ += "\n╠ 🇹🇭 Group Qr : {}".format(gQr)
-                                ret_ += "\n╚══[ Group Ticket : {}".format(gTicket)
+                                ret_ = "╔═[ ข้อมูลกลุ่ม ]\n"
+                                ret_ += "\n╠ ✒ ชื่อกลุ่ม]\n{}".format(str(group.name))
+                                ret_ += "\n╠ ✒ ไอดีกลุ่ม\n{}".format(group.id)
+                                ret_ += "\n╠ ✒ ผู้สร้างกลุ่ม\n{}".format(str(gCreator))
+                                ret_ += "\n╠ ✒ สมาชิกr : {}".format(str(len(group.members)))
+                                ret_ += "\n╠ ✒ ค้างเชิญ : {}".format(gPending)
+                                ret_ += "\n╠ ✒ สถานะลิ้ง : {}".format(gQr)
+                                ret_ += "\n╚ ✒ ลิ้งกลุ่ม : {}".format(gTicket)
                                 client.sendMessage(to, str(ret_))
                                 client.sendImageWithURL(to, path)
 
@@ -1607,29 +1607,29 @@ async def clientBot(op):
                                     ret_ += "\n[ Total {} Groups ]".format(str(len(groups)))
                                     client.sendMessage(to, str(ret_))
 # Pembatas Script #sampe sini editnya
-                            elif cmd == "changepicture":
+                            elif cmd == "เปลี่ยนรูป":
                                 settings["changePictureProfile"] = True
-                                client.sendMessage(to, "Send image")
+                                client.sendMessage(to, "✒ ส่งรูปลงมา")
 
                             elif cmd == "up foto":
                                 settings["changeProfileVideo"] = True
                                 client.sendMessage(to, "Send image")
-                            elif cmd == "up video":
+                            elif cmd == "เปลี่ยนวิดีโอ":
                                 settings["changeProfileVideo"] = True
-                                client.sendMessage(to, "Send videos")
+                                client.sendMessage(to, "✒ ส่งวิดีโอ")
 
-                            elif cmd.startswith("gn:"):
+                            elif cmd.startswith("เปลี่ยนชื่อกลุ่ม:"):
                                  G = client.getGroup(msg.to)
                                  pisah = msg.text.split(":")
                                  G.name = msg.text.replace(pisah[0]+":","")
                                  client.updateGroup(G)
-                                 client.sendMessage(msg.to,"success")
-                            elif cmd == "setgroupimage":
+                                 client.sendMessage(msg.to,"✒ เปลี่ยนชื่อกลุ่มเรียบร้อย")
+                            elif cmd == "เปลี่ยนรูปกลุ่ม":
                                 if msg.toType == 2:
                                     if to not in settings["changeGroupPicture"]:
                                         settings["changeGroupPicture"].append(to)
-                                    client.sendMessage(to, "Send image")
-                            elif cmd == 'tagall':
+                                    client.sendMessage(to, "✒ ส่งรูปลงมา")
+                            elif cmd == 'แทค':
                                 group = client.getGroup(msg.to)
                                 nama = [contact.mid for contact in group.members]
                                 k = len(nama)//20
@@ -1642,8 +1642,8 @@ async def clientBot(op):
                                         s += 7
                                         txt += u'@Zero \n'
                                     client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                                    client.sendMessage(to, "Total {} Mention".format(str(len(nama))))
-                            elif cmd == "lurking on":
+                                    client.sendMessage(to, "จำนวน {} คน".format(str(len(nama))))
+                            elif cmd == "เปิดอ่าน":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1667,7 +1667,7 @@ async def clientBot(op):
                                     read['readMember'][receiver] = ""
                                     read['readTime'][receiver] = readTime
                                     read['ROM'][receiver] = {}
-                                    client.sendMessage(receiver,"Lurking telah diaktifkan")
+                                    client.sendMessage(receiver,"✒ เปิดอ่านเรียบร้อย กรุณาพิม อ่าน ด้วยครับ")
                                 else:
                                     try:
                                         del read['readPoint'][receiver]
@@ -1680,7 +1680,7 @@ async def clientBot(op):
                                     read['readTime'][receiver] = readTime
                                     read['ROM'][receiver] = {}
                                     client.sendMessage(receiver,"Set reading point : \n" + readTime)
-                            elif cmd == "lurking off":
+                            elif cmd == "ปิดอ่าน":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1702,9 +1702,9 @@ async def clientBot(op):
                                         del read['readTime'][receiver]
                                     except:
                                         pass
-                                    client.sendMessage(receiver,"Delete reading point : \n" + readTime)
+                                    client.sendMessage(receiver,"✒ ปิดอ่านเรียบร้อย : \n" + readTime)
 
-                            elif cmd == "lurking reset":
+                            elif cmd == "รีอ่าน":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1729,11 +1729,11 @@ async def clientBot(op):
                                     read['readMember'][receiver] = ""
                                     read['readTime'][receiver] = readTime
                                     read['ROM'][receiver] = {}
-                                    client.sendMessage(msg.to, "Reset reading point : \n" + readTime)
+                                    client.sendMessage(msg.to, "✒ รีอ่าน : \n" + readTime)
                                 else:
-                                    client.sendMessage(msg.to, "Lurking belum aktif boss")
+                                    client.sendMessage(msg.to, "✒ รีอ่านไปแล้ว")
 
-                            elif cmd == "lurking":
+                            elif cmd == "อ่าน":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1774,8 +1774,8 @@ async def clientBot(op):
                                         print (error)
                                     pass
                                 else:
-                                    client.sendMessage(receiver,"Lurking belum aktif")
-                            elif cmd.startswith("replay add"):
+                                    client.sendMessage(receiver,"✒ กรุณาพิม เปิดอ่าน ก่อน")
+                            elif cmd.startswith("เพิ่มแอด "):
                                 targets = []
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
@@ -1789,7 +1789,7 @@ async def clientBot(op):
                                     except:
                                         client.sendMessage(msg.to,"Failid added target")
                                         break
-                            elif cmd.startswith("del replay"):
+                            elif cmd.startswith("ลบแอด "):
                                 targets = []
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
