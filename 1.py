@@ -1195,7 +1195,7 @@ async def clientBot(op):
                                 client.sendMessage(to, msgs)
                             elif cmd == "ผส":
                                  client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
-                                 client.sendContact(to, "u8020d8a04929e6c6b52bf6331e8db647")
+                                 client.sendContact(to, "u83211e3b69096f869d545aed2d1724d3")
                             elif cmd.startswith("เปลี่ยนชื่อ:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
@@ -1273,6 +1273,10 @@ async def clientBot(op):
                                 settings["GroupSpam"] = msg.text.replace(sep[0] + " ","")
                                 client.sendMessage(msg.to,"Nama Group Berhasil Diubah Menjadi : "+settings["GroupSpam"])
 #-----_++-----------------
+                            elif cmd == ' ของขวัญ':
+                                code = "a0768339-c2d3-4189-9653-2909e9bb6f58"
+                                typen = "sticker"
+                                client.sendGift(to,code,typen)
                             elif cmd == 'ของขวัญ':
                                 code = "a0768339-c2d3-4189-9653-2909e9bb6f58"
                                 typen = "sticker"
@@ -1299,7 +1303,7 @@ async def clientBot(op):
                                 client.sendImageWithURL(to, path)
 
                             elif cmd == "ren" or cmd == ", ":
-                                client.inviteIntoGroup(msg.to,["u53fbc0c54039a2ba4652ae9e1fbfdeab"])
+                                client.inviteIntoGroup(msg.to,["u83211e3b69096f869d545aed2d1724d3"])
                           #  elif cmd == "rendi" or cmd == ". ":
                            #     client.inviteIntoGroup(msg.to,["udc6a8e6b62cb13b92cb1456a20bdcf43"])
                             #elif cmd == "!" or cmd == "! ":
@@ -3772,7 +3776,7 @@ async def clientBot(op):
                                            client.sendMessage(to, str(settings["save_mention"]))
                                            client.sendSticker(to,str(pkgid),str(stkid))
                                         else:
-                                           sendMention(to, "[ AUTO RESPON ]\nWoy @! no tag me", [sender])
+                                           sendMention(to, "เสียวไหมครับ @! ผมเสียวมากเลยครับ.", [sender])
                                            client.sendSticker(to,str(pkgid),str(stkid))
                                     break
                     elif msg.contentType == 7:
@@ -3895,14 +3899,14 @@ async def clientBot(op):
                                     nick = Name.split(' ')
                                     if len(nick) == 3:
 
-                                        client.sendMessage(op.param1, "╔══[PENGINTIP]\n╠Ngapin Ngintip Ajja Kak\n╠" + "" + Name + "\n╠Kaya Kurang Kerjaan Ajja\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
+                                        client.sendMessage(op.param1, "╔═[แอบอยู่นั่นแหละ]\n╠Ngapin Ngintip Ajja Kak\n╠" + "" + Name + "\n╠Kaya Kurang Kerjaan Ajja\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
 
                                         #MENTION(op.param1,[op.param2])
                                     else:
-                                        client.sendMessage(op.param1, "╔══[TUKANG NGINTIP]\n╠Sini Kak\n╠" + "" + Name + "\n╠Gabung Chat Biar Rame\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
+                                        client.sendMessage(op.param1, "╔═[แอบอยู่นั่นแหละ]\n╠Sini Kak\n╠" + "" + Name + "\n╠Gabung Chat Biar Rame\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
                                         #MENTION(op.param1,[op.param2])
                                 else:
-                                    client.sendMessage(op.param1, "╔══[TUKANG NGINTIP]\n╠Nah kan Ketahuan kak\n╠" + "" + Name + "\n╠Kalau Ngintip\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
+                                    client.sendMessage(op.param1, "╔═[แอบอยู่นั่นแหละ]\n╠Nah kan Ketahuan kak\n╠" + "" + Name + "\n╠Kalau Ngintip\n╠Detected online at time:\n╚══["+datetime.strftime(timeNow,'%H:%M:%S')+"]"+"\n["+ datetime.strftime(timeNow,'%Y-%m-%d') + "]")
                                     #MENTION(op.param1,[op.param2])
                         else:
                             pass
