@@ -90,7 +90,7 @@ settings = {
     "checkContact": False,
     "checkPost": False,
     "checkSticker": False,
-    "save_sticker": True,
+    "save_sticker": False,
     "changePictureProfile": False,
     "changeGroupPicture": [],
     "chatEvent": {},
@@ -98,8 +98,8 @@ settings = {
     "stkid": {},
     "welcome": {},
     "team": {},
-    "welcomeimg": True,
-    "welcometext": True,
+    "welcomeimg": {},
+    "welcometext": {},
     "friendlist": {},
     "like": {},
     "autoPurge": {},
@@ -460,7 +460,7 @@ def helpmessage():
         key = key.title()
     else:
         key = ''
-    helpMessage =   "╭──────────╮" + "\n\n" + \
+    helpMessage =   "╭──────────╮" + "\n" + \
                     key + "│≫ คำสั่ง" + "\n" + \
                     key + "│≫ คำสั่ง1" + "\n" + \
                     key + "│≫ คำสั่ง2" + "\n" + \
@@ -497,7 +497,7 @@ def helpmessage():
                     key + "╰──────────╯" + "\n" + \
                     key + "╭──────────╮" + "\n" + \
                     key + "│✒  SELFBOT-BY:MAX " + "\n" + \
-                    key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+                    key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
                     "╰──────────╯"
     return helpMessage
 
@@ -529,7 +529,7 @@ def helpsettings():
                           key + "╰──────────╯" + "\n" + \
                           key + "╭──────────╮" + "\n" + \
                           key + "│✒  SELFBOT-BY:MAX " + "\n" + \
-                          key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+                          key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
                           "╰──────────╯"
     return helpSettings
 
@@ -543,10 +543,10 @@ def helpmedia():
                key + "│≫ ยูทูป「ข้อความ」" + "\n" + \
                key + "│≫ รูป「ข้อความ」" + "\n" + \
                key + "│≫ เพลง「ข้อความ」" + "\n" + \
-               key + "│≫ Zodiak「Query」" + "\n" + \
-               key + "│≫ Ytmp3「Query」" + "\n" + \
-               key + "│≫ Google search「Query」" + "\n" + \
-               key + "│≫ Checkdate「Date」" + "\n" + \
+               key + "│≫ Zodiak「ข้อความ」" + "\n" + \
+               key + "│≫ Ytmp3「ข้อความ」" + "\n" + \
+               key + "│≫ Google search「ข้อความ」" + "\n" + \
+               key + "│≫ Checkdate「ข้อความ」" + "\n" + \
                key + "│≫ Checkwebsite「url」" + "\n" + \
                key + "│≫ Hitung「no+×÷no」" + "\n" + \
                key + "│≫ Mysticker" + "\n" + \
@@ -555,13 +555,13 @@ def helpmedia():
                key + "│≫ Instapost「Name」|「No」" + "\n" + \
                key + "│≫ Instastory「Name」|「No」" + "\n" + \
                key + "│≫ Youtube「Search」" + "\n" + \
-               key + "│≫ Bokep「Search」" + "\n" + \
-               key + "│≫ Tulis「Search」" + "\n" + \
-               key + "│≫ Lyric「Search」" + "\n" + \
+               key + "│≫ Bokep「ข้อความ」" + "\n" + \
+               key + "│≫ Tulis「ข้อความ」" + "\n" + \
+               key + "│≫ Lyric「ข้อความ」" + "\n" + \
                key + "╰──────────╯" + "\n" + \
                key + "╭──────────╮" + "\n" + \
                key + "│✒  SELFBOT-BY:MAX " + "\n" + \
-               key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+               key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
                "╰──────────╯"
     return helpMedia
 
@@ -589,7 +589,7 @@ def helpgroup():
               key + "╰──────────╯" + "\n" + \
               key + "╭──────────╮" + "\n" + \
               key + "│✒  SELFBOT-BY:MAX " + "\n" + \
-              key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+              key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
               "╰──────────╯"
     return helpGroup
 
@@ -624,7 +624,7 @@ def helpbot():
           key + "╰──────────╯" + "\n" + \
           key + "╭──────────╮" + "\n" + \
           key + "│✒  SELFBOT-BY:MAX " + "\n" + \
-          key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+          key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
           "╰──────────╯"
     return helpBot
 
@@ -633,118 +633,119 @@ def helptranslate():
         key = settings['keyCommand']
     else:
         key = ''
-    helpTranslate = "Hᴇʟᴘ Tʀᴀɴs" + "\n" + \
-                    key + "⚅ af : afrikaans" + "\n" + \
-                    key + "⚅ sq : albanian" + "\n" + \
-                    key + "⚅ am : amharic" + "\n" + \
-                    key + "⚅ ar : arabic" + "\n" + \
-                    key + "⚅ hy : armenian" + "\n" + \
-                    key + "⚅ az : azerbaijani" + "\n" + \
-                    key + "⚅ eu : basque" + "\n" + \
-                    key + "⚅ be : belarusian" + "\n" + \
-                    key + "⚅ bn : bengali" + "\n" + \
-                    key + "⚅ bs : bosnian" + "\n" + \
-                    key + "⚅ bg : bulgarian" + "\n" + \
-                    key + "⚅ ca : catalan" + "\n" + \
-                    key + "⚅ ceb : cebuano" + "\n" + \
-                    key + "⚅ ny : chichewa" + "\n" + \
-                    key + "⚅ zhcn : chinese (simplified)" + "\n" + \
-                    key + "⚅ zhtw : chinese (traditional)" + "\n" + \
-                    key + "⚅ co : corsican" + "\n" + \
-                    key + "⚅ hr : croatian" + "\n" + \
-                    key + "⚅ cs : czech" + "\n" + \
-                    key + "⚅ da : danish" + "\n" + \
-                    key + "⚅ nl : dutch" + "\n" + \
-                    key + "⚅ en : english" + "\n" + \
-                    key + "⚅ eo : esperanto" + "\n" + \
-                    key + "⚅ et : estonian" + "\n" + \
-                    key + "⚅ tl : filipino" + "\n" + \
-                    key + "⚅ fi : finnish" + "\n" + \
-                    key + "⚅ fr : french" + "\n" + \
-                    key + "⚅ fy : frisian" + "\n" + \
-                    key + "⚅ gl : galician" + "\n" + \
-                    key + "⚅ ka : georgian" + "\n" + \
-                    key + "⚅ de : german" + "\n" + \
-                    key + "⚅ el : greek" + "\n" + \
-                    key + "⚅ gu : gujarati" + "\n" + \
-                    key + "⚅ ht : haitian creole" + "\n" + \
-                    key + "⚅ ha : hausa" + "\n" + \
-                    key + "⚅ haw : hawaiian" + "\n" + \
-                    key + "⚅ iw : hebrew" + "\n" + \
-                    key + "⚅ hi : hindi" + "\n" + \
-                    key + "⚅ hmn : hmong" + "\n" + \
-                    key + "⚅ hu : hungarian" + "\n" + \
-                    key + "⚅ is : icelandic" + "\n" + \
-                    key + "⚅ ig : igbo" + "\n" + \
-                    key + "⚅ id : indonesian" + "\n" + \
-                    key + "⚅ ga : irish" + "\n" + \
-                    key + "⚅ it : italian" + "\n" + \
-                    key + "⚅ ja : japanese" + "\n" + \
-                    key + "⚅ jw : javanese" + "\n" + \
-                    key + "⚅ kn : kannada" + "\n" + \
-                    key + "⚅ kk : kazakh" + "\n" + \
-                    key + "⚅ km : khmer" + "\n" + \
-                    key + "⚅ ko : korean" + "\n" + \
-                    key + "⚅ ku : kurdish (kurmanji)" + "\n" + \
-                    key + "⚅ ky : kyrgyz" + "\n" + \
-                    key + "⚅ lo : lao" + "\n" + \
-                    key + "⚅ la : latin" + "\n" + \
-                    key + "⚅ lv : latvian" + "\n" + \
-                    key + "⚅ lt : lithuanian" + "\n" + \
-                    key + "⚅ lb : luxembourgish" + "\n" + \
-                    key + "⚅ mk : macedonian" + "\n" + \
-                    key + "⚅ mg : malagasy" + "\n" + \
-                    key + "⚅ ms : malay" + "\n" + \
-                    key + "⚅ ml : malayalam" + "\n" + \
-                    key + "⚅ mt : maltese" + "\n" + \
-                    key + "⚅ mi : maori" + "\n" + \
-                    key + "⚅ mr : marathi" + "\n" + \
-                    key + "⚅ mn : mongolian" + "\n" + \
-                    key + "⚅ my : myanmar (burmese)" + "\n" + \
-                    key + "⚅ ne : nepali" + "\n" + \
-                    key + "⚅ no : norwegian" + "\n" + \
-                    key + "⚅ ps : pashto" + "\n" + \
-                    key + "⚅ fa : persian" + "\n" + \
-                    key + "⚅ pl : polish" + "\n" + \
-                    key + "⚅ pt : portuguese" + "\n" + \
-                    key + "⚅ pa : punjabi" + "\n" + \
-                    key + "⚅ ro : romanian" + "\n" + \
-                    key + "⚅ ru : russian" + "\n" + \
-                    key + "⚅ sm : samoan" + "\n" + \
-                    key + "⚅ gd : scots gaelic" + "\n" + \
-                    key + "⚅ sr : serbian" + "\n" + \
-                    key + "⚅ st : sesotho" + "\n" + \
-                    key + "⚅ sn : shona" + "\n" + \
-                    key + "⚅ sd : sindhi" + "\n" + \
-                    key + "⚅ si : sinhala" + "\n" + \
-                    key + "⚅ sk : slovak" + "\n" + \
-                    key + "⚅ sl : slovenian" + "\n" + \
-                    key + "⚅ so : somali" + "\n" + \
-                    key + "⚅ es : spanish" + "\n" + \
-                    key + "⚅ su : sundanese" + "\n" + \
-                    key + "⚅ sw : swahili" + "\n" + \
-                    key + "⚅ sv : swedish" + "\n" + \
-                    key + "⚅ tg : tajik" + "\n" + \
-                    key + "⚅ ta : tamil" + "\n" + \
-                    key + "⚅ te : telugu" + "\n" + \
-                    key + "⚅ th : thai" + "\n" + \
-                    key + "⚅ tr : turkish" + "\n" + \
-                    key + "⚅ uk : ukrainian" + "\n" + \
-                    key + "⚅ ur : urdu" + "\n" + \
-                    key + "⚅ uz : uzbek" + "\n" + \
-                    key + "⚅ vi : vietnamese" + "\n" + \
-                    key + "⚅ cy : welsh" + "\n" + \
-                    key + "⚅ xh : xhosa" + "\n" + \
-                    key + "⚅ yi : yiddish" + "\n" + \
-                    key + "⚅ yo : yoruba" + "\n" + \
-                    key + "⚅ zu : zulu" + "\n" + \
-                    key + "⚅ fil : Filipino" + "\n" + \
-                    key + "⚅ he : Hebrew" + "\n" + \
-                    "\n" + \
-                    "⚅ Contoh : " + key + "tr-id dhenza" + "\n" + \
-                    "\n" + \
-                    key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-                    "http://line.me/ti/p/~maxsett"
+    helpTranslate = "╭──────────╮" + "\n" + \
+                    key + "│≫ af : afrikaans" + "\n" + \
+                    key + "│≫ sq : albanian" + "\n" + \
+                    key + "│≫ am : amharic" + "\n" + \
+                    key + "│≫ ar : arabic" + "\n" + \
+                    key + "│≫ hy : armenian" + "\n" + \
+                    key + "│≫ az : azerbaijani" + "\n" + \
+                    key + "│≫ eu : basque" + "\n" + \
+                    key + "│≫ be : belarusian" + "\n" + \
+                    key + "│≫ bn : bengali" + "\n" + \
+                    key + "│≫ bs : bosnian" + "\n" + \
+                    key + "│≫ bg : bulgarian" + "\n" + \
+                    key + "│≫ ca : catalan" + "\n" + \
+                    key + "│≫ ceb : cebuano" + "\n" + \
+                    key + "│≫ ny : chichewa" + "\n" + \
+                    key + "│≫ zhcn : chinese (simplified)" + "\n" + \
+                    key + "│≫ zhtw : chinese (traditional)" + "\n" + \
+                    key + "│≫ co : corsican" + "\n" + \
+                    key + "│≫ hr : croatian" + "\n" + \
+                    key + "│≫ cs : czech" + "\n" + \
+                    key + "│≫ da : danish" + "\n" + \
+                    key + "│≫ nl : dutch" + "\n" + \
+                    key + "│≫ en : english" + "\n" + \
+                    key + "│≫ eo : esperanto" + "\n" + \
+                    key + "│≫ et : estonian" + "\n" + \
+                    key + "│≫ tl : filipino" + "\n" + \
+                    key + "│≫ fi : finnish" + "\n" + \
+                    key + "│≫ fr : french" + "\n" + \
+                    key + "│≫ fy : frisian" + "\n" + \
+                    key + "│≫ gl : galician" + "\n" + \
+                    key + "│≫ ka : georgian" + "\n" + \
+                    key + "│≫ de : german" + "\n" + \
+                    key + "│≫ el : greek" + "\n" + \
+                    key + "│≫ gu : gujarati" + "\n" + \
+                    key + "│≫ ht : haitian creole" + "\n" + \
+                    key + "│≫ ha : hausa" + "\n" + \
+                    key + "│≫ haw : hawaiian" + "\n" + \
+                    key + "│≫ iw : hebrew" + "\n" + \
+                    key + "│≫ hi : hindi" + "\n" + \
+                    key + "│≫ hmn : hmong" + "\n" + \
+                    key + "│≫ hu : hungarian" + "\n" + \
+                    key + "│≫ is : icelandic" + "\n" + \
+                    key + "│≫ ig : igbo" + "\n" + \
+                    key + "│≫ id : indonesian" + "\n" + \
+                    key + "│≫ ga : irish" + "\n" + \
+                    key + "│≫ it : italian" + "\n" + \
+                    key + "│≫ ja : japanese" + "\n" + \
+                    key + "│≫ jw : javanese" + "\n" + \
+                    key + "│≫ kn : kannada" + "\n" + \
+                    key + "│≫ kk : kazakh" + "\n" + \
+                    key + "│≫ km : khmer" + "\n" + \
+                    key + "│≫ ko : korean" + "\n" + \
+                    key + "│≫ ku : kurdish (kurmanji)" + "\n" + \
+                    key + "│≫ ky : kyrgyz" + "\n" + \
+                    key + "│≫ lo : lao" + "\n" + \
+                    key + "│≫ la : latin" + "\n" + \
+                    key + "│≫ lv : latvian" + "\n" + \
+                    key + "│≫ lt : lithuanian" + "\n" + \
+                    key + "│≫ lb : luxembourgish" + "\n" + \
+                    key + "│≫ mk : macedonian" + "\n" + \
+                    key + "│≫ mg : malagasy" + "\n" + \
+                    key + "│≫ ms : malay" + "\n" + \
+                    key + "│≫ ml : malayalam" + "\n" + \
+                    key + "│≫ mt : maltese" + "\n" + \
+                    key + "│≫ mi : maori" + "\n" + \
+                    key + "│≫ mr : marathi" + "\n" + \
+                    key + "│≫ mn : mongolian" + "\n" + \
+                    key + "│≫ my : myanmar (burmese)" + "\n" + \
+                    key + "│≫ ne : nepali" + "\n" + \
+                    key + "│≫ no : norwegian" + "\n" + \
+                    key + "│≫ ps : pashto" + "\n" + \
+                    key + "│≫ fa : persian" + "\n" + \
+                    key + "│≫ pl : polish" + "\n" + \
+                    key + "│≫ pt : portuguese" + "\n" + \
+                    key + "│≫ pa : punjabi" + "\n" + \
+                    key + "│≫ ro : romanian" + "\n" + \
+                    key + "│≫ ru : russian" + "\n" + \
+                    key + "│≫ sm : samoan" + "\n" + \
+                    key + "│≫ gd : scots gaelic" + "\n" + \
+                    key + "│≫ sr : serbian" + "\n" + \
+                    key + "│≫ st : sesotho" + "\n" + \
+                    key + "│≫ sn : shona" + "\n" + \
+                    key + "│≫ sd : sindhi" + "\n" + \
+                    key + "│≫ si : sinhala" + "\n" + \
+                    key + "│≫ sk : slovak" + "\n" + \
+                    key + "│≫ sl : slovenian" + "\n" + \
+                    key + "│≫ so : somali" + "\n" + \
+                    key + "│≫ es : spanish" + "\n" + \
+                    key + "│≫ su : sundanese" + "\n" + \
+                    key + "│≫ sw : swahili" + "\n" + \
+                    key + "│≫ sv : swedish" + "\n" + \
+                    key + "│≫ tg : tajik" + "\n" + \
+                    key + "│≫ ta : tamil" + "\n" + \
+                    key + "│≫ te : telugu" + "\n" + \
+                    key + "│≫ th : thai" + "\n" + \
+                    key + "│≫ tr : turkish" + "\n" + \
+                    key + "│≫ uk : ukrainian" + "\n" + \
+                    key + "│≫ ur : urdu" + "\n" + \
+                    key + "│≫ uz : uzbek" + "\n" + \
+                    key + "│≫ vi : vietnamese" + "\n" + \
+                    key + "│≫ cy : welsh" + "\n" + \
+                    key + "│≫ xh : xhosa" + "\n" + \
+                    key + "│≫ yi : yiddish" + "\n" + \
+                    key + "│≫ yo : yoruba" + "\n" + \
+                    key + "│≫ zu : zulu" + "\n" + \
+                    key + "│≫ fil : Filipino" + "\n" + \
+                    key + "│≫ he : Hebrew" + "\n" + \
+                    "│≫ วิธีใช้งาน : " + key + "tr-th แม็ค" + "\n" + \
+                    key + "╰──────────╯" + "\n" + \
+                    key + "╭──────────╮" + "\n" + \
+                    key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+                    key + "│✒ line.me/ti/p/%40spm7024h" + "\n" + \
+                    "╰──────────╯"
     return helpTranslate
 def cek(mid):
     if mid in ( clientMid):
@@ -866,18 +867,18 @@ async def clientBot(op):
                             return
                         else:
                             cmd = command(text)
-                            if cmd == "sb on":
+                            if cmd == "team on":
                                 if settings["system"] == True:
-                                   client.sendMessage(to,"Sb on")
+                                   client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
                                 else:
                                    settings["system"] = True
-                                   client.sendMessage(to,"has been enabled")
-                            elif cmd == "sb off":
+                                   client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
+                            elif cmd == "team off":
                                 if settings["system"] == False:
-                                    client.sendMessage(to,"Sb off")
+                                    client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
                                 else:
                                     settings["system"] = False
-                                    client.sendMessage(to,"has been disabled")
+                                    client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
             except Exception as error:
                 logError(error)
                 traceback.print_tb(error.__traceback__)
@@ -1013,6 +1014,7 @@ async def clientBot(op):
                                 client.sendMessage(to, "✒ ปิดเข้ากลุ่มเรียบร้อย")
                             elif cmd == "ออกกลุ่ม เปิด":
                                 settings["autoLeave"] = True
+                                settings["autoJoin"] = False
                                 client.sendMessage(to, "✒ เปิดออกกลุ่มเรียบร้อย")
                             elif cmd == "ออกกลุ่ม ปิด":
                                 settings["autoLeave"] = False
@@ -1106,20 +1108,6 @@ async def clientBot(op):
                                 else:
                                     client.sendMessage(msg.to, "✒ ปิดคนแอบเรียบร้อย")
 
-                            elif cmd == "url on":
-                                if msg.to in settings["lockUrl"]:
-                                    client.sendMessage(to,"already done")
-                                else:
-                                    gid = msg.to
-                                    settings["lockUrl"][gid] = "pipo"
-                                    client.sendMessage(to,"done")
-                            elif cmd == "url off":
-                                if msg.to not in settings["lockUrl"]:
-                                    client.sendMessage(to,"already off")
-                                else:
-                                    gid = msg.to
-                                    del settings["lockUrl"][gid]
-                                    client.sendMessage(to,"done")
                             elif cmd == "clear on":
                                 if msg.to in settings["autoPurge"]:
                                     client.sendMessage(to,"Done on")
@@ -1135,49 +1123,40 @@ async def clientBot(op):
                                     del settings["autoPurge"][gid]
                                     client.sendMessage(to,"Success clear off")
 
-                            elif cmd == "settings":
+                            elif cmd == "เชค":
                                 try:
-                                    ret_ = "sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx\n"
-                                    if settings["autoAdd"] == True: ret_ += "\n🔴 Auto Add  [+]"
-                                    else: ret_ += "\n⚫ Auto Add  [-]"
-                                    if settings["autoJoin"] == True: ret_ += "\n🔴 Auto Join  [+]"
-                                    else: ret_ += "\n⚫ Auto Join  [-]"
-                                    if settings["autoLeave"] == True: ret_ += "\n🔴 Auto Leave  [+]"
-                                    else: ret_ += "\n⚫ Auto Leave  [-]"
-                                    if settings["autoJoinTicket"] == True: ret_ += "\n🔴 Join Ticket  [+]"
-                                    else: ret_ += "\n⚫ Join Ticket  [-]"
-                                    if settings["autoRead"] == True: ret_ += "\n🔴 Auto Read  [+]"
-                                    else: ret_ += "\n⚫ Auto Read  [-]"
-                                    if settings["autoRespon"] == True: ret_ += "\n🔴 Respon  [+]"
-                                    else: ret_ += "\n⚫ Respon  [-]"
-                                    if settings["checkContact"] == True: ret_ += "\n🔴 Contact  [+]"
-                                    else: ret_ += "\n⚫ Contact  [-]"
-                                    if settings["checkPost"] == True: ret_ += "\n🔴 Check Post  [+]"
-                                    else: ret_ += "\n⚫ Check Post  [-]"
-                                    if settings["checkSticker"] == True: ret_ += "\n🔴 Check Sticker  [+]"
-                                    else: ret_ += "\n⚫ Check Sticker  [-]"
-                                    if settings["setKey"] == True: ret_ += "\n🔴 Set Key  [+]"
-                                    else: ret_ += "\n⚫ Set Key  [-]"
-                                    if settings["unsendMessage"] == True: ret_ += "\n🔴 Unsend Message  [+]"
-                                    else: ret_ += "\n⚫ Unsend Message  [-]"
-                                    if msg.to in cctv["cyduk"]: ret_ += "\n🔴 Sider  [+]"
-                                    else: ret_ += "\n⚫ Sider  [-]"
-                                    if msg.to in settings["welcome"]: ret_ += "\n🔴 Welcometext  [+]"
-                                    else: ret_ += "\n⚫ Welcometext  [-]"
-                                    if msg.to in settings["welcomeimg"]: ret_ += "\n🔴 Welcomeimage  [+]"
-                                    else: ret_ += "\n⚫ Welcomeimage  [-]"
-                                    if msg.to in settings["lockname"]: ret_ += "\n🔴 Namelock  [+]"
-                                    else: ret_ += "\n⚫ Namelock  [-]"
-                                    if msg.to in settings["lockicon"]: ret_ += "\n🔴 Iconlock  [+]"
-                                    else: ret_ += "\n⚫ Iconlock  [-]"
-                                    if msg.to in settings["lockinvite"]: ret_ += "\n🔴 Proinvite  [+]"
-                                    else: ret_ += "\n⚫ Proinvite  [-]"
-                                    if msg.to in settings["lockJoin"]: ret_ += "\n🔴 Joinlock  [+]"
-                                    else: ret_ += "\n⚫ Joinlock  [-]"
-                                    if msg.to in settings["lockMember"]: ret_ += "\n🔴 Memberlock  [+]"
-                                    else: ret_ += "\n⚫ Memberlock  [-]"
-                                    if msg.to in settings["autoPurge"]: ret_ += "\n🔴 AutoClear  [+]"
-                                    else: ret_ += "\n⚫ AutoClear  [-]"
+                                    ret_ = "╭──────────╮\n│ 🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖\n╰──────────╯\n"
+                                    if settings["autoAdd"] == True: ret_ += "\n│ ≫ บล็อค「✔」"
+                                    else: ret_ += "\n│ ≫ บล็อค「✖」"
+                                    if settings["autoJoin"] == True: ret_ += "\n│ ≫ เข้ากลุ่ม「✔」"
+                                    else: ret_ += "\n│ ≫ เข้ากลุ่ม「✖」"
+                                    if settings["autoLeave"] == True: ret_ += "\n│ ≫ ออกกลุ่ม「✔」"
+                                    else: ret_ += "\n│ ≫ ออกกลุ่ม「✖」"
+                                    if settings["autoJoinTicket"] == True: ret_ += "\n│ ≫ มุดลิ้ง「✔」"
+                                    else: ret_ += "\n│ ≫ มุดลิ้ง「✖」"
+                                    if settings["autoRead"] == True: ret_ += "\n│ ≫ อ่าน「✔」"
+                                    else: ret_ += "\n│ ≫ อ่าน「✖」"
+                                    if settings["autoRespon"] == True: ret_ += "\n│ ≫ คนแทค「✔」"
+                                    else: ret_ += "\n│ ≫ คนแทค「✖」"
+                                    if settings["checkContact"] == True: ret_ += "\n│ ≫ คท「✔」"
+                                    else: ret_ += "\n│ ≫ คท「✖」"
+                                    if settings["checkPost"] == True: ret_ += "\n│ ≫ โพส「✔」"
+                                    else: ret_ += "\n│ ≫ โพส「✖」"
+                                    if settings["checkSticker"] == True: ret_ += "\n│ ≫ สติกเกอร์「✔」"
+                                    else: ret_ += "\n│ ≫ สติกเกอร์「✖」"
+                                    if settings["chatEvent"] == True: ret_ += "\n│ ≫ แชทสติกเกอร์「✔」"
+                                    else: ret_ += "\n│ ≫ แชทสติกเกอร์「✖」"
+                                    if settings["unsendMessage"] == True: ret_ += "\n│ ≫ ยกเลิกข้อความ「✔」"
+                                    else: ret_ += "\n│ ≫ ยกเลิกข้อความ「✖」"
+                                    if msg.to in cctv["cyduk"]: ret_ += "\n│ ≫ คนแอบ「✔」"
+                                    else: ret_ += "\n│ ≫ คนแอบ「✖」"
+                                    if msg.to in settings["welcome"]: ret_ += "\n│ ≫ ต้อนรับข้อความ「✔」"
+                                    else: ret_ += "\n│ ≫ ต้อนรับข้อความ「✖」"
+                                    if msg.to in settings["welcomeimg"]: ret_ += "\n│ ≫ ต้อนรับรูป「✔」"
+                                    else: ret_ += "\n│ ≫ ต้อนรับรูป「✖」"
+                                    if msg.to in settings["autoReject"]: ret_ += "\n│ ≫ ลบเชิญ「✔」"
+                                    else: ret_ += "\n│ ≫ ลบเชิญ「✖」"
+                                    client.sendMessage(to,"╰──────────╯")
                                     client.sendMessage(to, str(ret_))
                                 except Exception as e:
                                     client.sendMessage(msg.to, str(e))
@@ -1215,6 +1194,7 @@ async def clientBot(op):
                                 msgs+="\n\n━━━࿈ SELFBOT-BY:MAX : %i" % len(kontak)
                                 client.sendMessage(to, msgs)
                             elif cmd == "ผส":
+                                 client.sendMessage(to,"🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖")
                                  client.sendContact(to, "u8020d8a04929e6c6b52bf6331e8db647")
                             elif cmd.startswith("เปลี่ยนชื่อ:"):
                                 sep = text.split(":")
