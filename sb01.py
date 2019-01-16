@@ -1105,7 +1105,7 @@ async def clientBot(op):
                             elif cmd == "ต้อนรับข้อความ ปิด":
                                 del settings["welcome"][msg.to]
                                 client.sendMessage(to,"✒ เปิดต้อนรับข้อความเรียบร้อย")
-                            elif cmd == 'sider on':
+                            elif cmd == 'คนแอบ เปิด':
                                 try:
                                     del cctv['point'][msg.to]
                                     del cctv['sidermem'][msg.to]
@@ -1116,15 +1116,15 @@ async def clientBot(op):
                                     cctv['sidermem'][msg.to] = ""
                                     cctv['cyduk'][msg.to] = "pipo"
                                     settings["Sider"] = True
-                                    client.sendMessage(msg.to,"Success on sider")
+                                    client.sendMessage(msg.to,"✒ เปิดคนแอบเรียบร้อย")
 
-                            elif cmd == 'sider off':
+                            elif cmd == 'คนแอบ ปิด':
                                 if msg.to in cctv['point']:
                                     del cctv['cyduk'][msg.to]
                                     settings["Sider"] = False
-                                    client.sendMessage(msg.to,"Success off sider")
+                                    client.sendMessage(msg.to,"✒ ปิดคนแอบเรียบร้อย")
                                 else:
-                                    client.sendMessage(msg.to, "Success off sider")
+                                    client.sendMessage(msg.to, "✒ ปิดคนแอบเรียบร้อย")
 
                             elif cmd == "url on":
                                 if msg.to in settings["lockUrl"]:
@@ -1186,8 +1186,6 @@ async def clientBot(op):
                                     else: ret_ += "\n⚫ Welcometext  [-]"
                                     if msg.to in settings["welcomeimg"]: ret_ += "\n🔴 Welcomeimage  [+]"
                                     else: ret_ += "\n⚫ Welcomeimage  [-]"
-                                    if msg.to in settings["lockqr"]: ret_ += "\n🔴 Proqr  [+]"
-                                    else: ret_ += "\n⚫ Proqr  [-]"
                                     if msg.to in settings["lockname"]: ret_ += "\n🔴 Namelock  [+]"
                                     else: ret_ += "\n⚫ Namelock  [-]"
                                     if msg.to in settings["lockicon"]: ret_ += "\n🔴 Iconlock  [+]"
@@ -1204,83 +1202,83 @@ async def clientBot(op):
                                 except Exception as e:
                                     client.sendMessage(msg.to, str(e))
 # Pembatas Script 
-                            elif cmd == 'myticket':
+                            elif cmd == 'ลิ้งกู':
                                  tiket = client.reissueUserTicket()
-                                 client.sendMessage(to, "My ticket\n\nline.me/ti/p/"+tiket)
-                            elif cmd == 'bye me':
+                                 client.sendMessage(to, "✒ ลิ้งของกู\n\nline.me/ti/p/"+tiket)
+                            elif cmd == 'ออกกลุ่ม':
                                 if msg.toType == 2:
-                                    client.sendMessage(to, "pamit dulu ya..")
+                                    client.sendMessage(to, "บาย..")
                                     client.leaveGroup(msg.to)
-                            elif cmd == 'bye all':
+                            elif cmd == 'ออกหมด':
                                 if msg.toType == 2:
                                     td = client.getGroupIdsJoined()
-                                    client.sendMessage(to,"see you next time")
+                                    client.sendMessage(to,"เจอกันใหม่นะ...")
                                     for i in td:
                                         client.leaveGroup(i)
-                            elif cmd == 'block contact':
+                            elif cmd == 'บล็อค คท':
                                 blockedlistt = client.getBlockedContactIds()
                                 for zx in blockedlistt:
                                     client.sendContact(to,zx)
-                            elif cmd == 'unblockall':
+                            elif cmd == 'ลบบล็อค':
                                 blockedlistt = client.getBlockedContactIds()
                                 for zx in blockedlistt:
                                     client.unblockContact(zx)
-                                client.sendMessage(to, "Success")
-                            elif cmd == 'listblock':
+                                client.sendMessage(to, "✒ ลบเรียบร้อย")
+                            elif cmd == 'รายการบล็อค':
                                 blockedlist = client.getBlockedContactIds()
                                 kontak = client.getContacts(blockedlist)
                                 num=1
-                                msgs="━━━࿈List Blocked࿈━━━"
+                                msgs="━━━࿈ รายการบล็อค ࿈━━━"
                                 for ids in kontak:
                                     msgs+="\n[%i] %s" % (num, ids.displayName)
                                     num=(num+1)
-                                msgs+="\n\n━━━࿈ Total Blocked : %i" % len(kontak)
+                                msgs+="\n\n━━━࿈ SELFBOT-BY:MAX : %i" % len(kontak)
                                 client.sendMessage(to, msgs)
-                            elif cmd == "crash":
+                            elif cmd == "ผส":
                                  client.sendContact(to, "00000000000000000000000000000000000000000000000000',")
-                            elif cmd.startswith("changename:"):
+                            elif cmd.startswith("เปลี่ยนชื่อ:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
                                 if len(string) <= 200:
                                     profile = client.getProfile()
                                     profile.displayName = string
                                     client.updateProfile(profile)
-                                    client.sendMessage(to,"Success mengganti display name menjadi{}".format(str(string)))
-                            elif cmd.startswith("setname:"):
+                                    client.sendMessage(to,"✒ เปลี่ยนชื่อเป็น {}".format(str(string)))
+                            elif cmd.startswith("ชื่อ:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
                                 if len(string) <= 200:
                                     profile = client.getProfile()
                                     profile.displayName = string
                                     client.updateProfile(profile)
-                                    client.sendMessage(to,"Success mengganti display name menjadi{}".format(str(string)))
-                            elif cmd.startswith("changebio:"):
+                                    client.sendMessage(to,"✒ เปลี่ยนชื่อเป็น {}".format(str(string)))
+                            elif cmd.startswith("เปลี่ยนตัส:"):
                                 sep = text.split(":")
                                 string = text.replace(sep[0] + ":","")
                                 if len(string) <= 50000000:
                                     profile = client.getProfile()
                                     profile.statusMessage = string
                                     client.updateProfile(profile)
-                                    client.sendMessage(to,"Success mengganti status message menjadi{}".format(str(string)))
-                            elif cmd.startswith("max: "):
+                                    client.sendMessage(to,"✒ เปลี่ยนตัสเป็น {}".format(str(string)))
+                            elif cmd.startswith("จำนวน: "):
                                             pisah = text.split(":")
                                             strnum = text.replace(pisah[0] + ":","")
                                             settings["nilaiSpam"] = str(strnum)
-                                            client.sendMessage(to, "Jumlah spam telah di tetapkan menjadi:"+str(strnum))
-                            elif cmd.startswith("spamtext: "):
+                                            client.sendMessage(to, "✒ เปลี่ยนจำนวนทั้งหมดเป็น:"+str(strnum))
+                            elif cmd.startswith("แสปมข้อความ: "):
                                             pisah = text.split(":")
                                             tulisan = text.replace(pisah[0] + ":","")
                                             num = int(settings["nilaiSpam"])
                                             for var in range(0,num):
                                                 client.sendMessage(to, str(tulisan))
-                            elif cmd == "call":
+                            elif cmd == "รัวคอล":
                                             grupnya = client.getGroup(msg.to)
                                             membernya = [mem.mid for mem in grupnya.members]
                                             num = int(settings["nilaiSpam"])
                                             for var in range(0,num):
                                                 client.inviteIntoGroupCall(to, contactIds=membernya)
-                                            client.sendMessage(to,"succes spam {} Groupcall".format(str(settings["nilaiSpam"])))
-                            elif cmd.startswith("spamtag "):
+                                            client.sendMessage(to,"✒ รัวคอล {} คอล".format(str(settings["nilaiSpam"])))
+                            elif cmd.startswith("แทค "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1315,27 +1313,27 @@ async def clientBot(op):
                                 settings["GroupSpam"] = msg.text.replace(sep[0] + " ","")
                                 client.sendMessage(msg.to,"Nama Group Berhasil Diubah Menjadi : "+settings["GroupSpam"])
 #-----_++-----------------
-                            elif cmd == 'gift':
+                            elif cmd == 'ของขวัญ':
                                 code = "a0768339-c2d3-4189-9653-2909e9bb6f58"
                                 typen = "sticker"
                                 client.sendGift(to,code,typen)
-                            elif cmd == "me":
+                            elif cmd == "คท":
                                 client.sendMessageMusic(to, title=client.getContact(sender).displayName, subText=str(client.getContact(sender).statusMessage), url='line.me/ti/p/~maxsett', iconurl="http://dl.profile.line-cdn.net/{}".format(client.getContact(sender).pictureStatus), contentMetadata={}) 
-                            elif cmd == "mymid":
+                            elif cmd == "ไอดี":
                                 client.sendMessage(to, "[ MID ]\n{}".format(sender))
-                            elif cmd == "myname":
+                            elif cmd == "ชื่อ":
                                 contact = client.getContact(sender)
                                 client.sendMessage(to, "[ Display Name ]\n{}".format(contact.displayName))
-                            elif cmd == "mybio":
+                            elif cmd == "ตัส":
                                 contact = client.getContact(sender)
                                 client.sendMessage(to, "[ Status Message ]\n{}".format(contact.statusMessage))
-                            elif cmd == "mypicture":
+                            elif cmd == "รูป":
                                 contact = client.getContact(sender)
                                 client.sendImageWithURL(to,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
-                            elif cmd == "myvideoprofile":
+                            elif cmd == "วิดีโอ":
                                 contact = client.getContact(sender)
                                 client.sendVideoWithURL(to,"http://dl.profile.line-cdn.net/{}/vp".format(contact.pictureStatus))
-                            elif cmd == "mycover":
+                            elif cmd == "ปก":
                                 channel = client.getProfileCoverURL(sender)
                                 path = str(channel)
                                 client.sendImageWithURL(to, path)
@@ -1365,7 +1363,7 @@ async def clientBot(op):
                                         p.close()
                                         return    
 
-                            elif cmd.startswith("copy "):
+                            elif cmd.startswith("ก็อป "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1377,9 +1375,9 @@ async def clientBot(op):
                                     for ls in lists:
                                         contact = client.getContact(ls)
                                         client.cloneContactProfile(ls)
-                                        client.sendMessage(to, "Success Copy profile {}".format(contact.displayName))
+                                        client.sendMessage(to, "✒ ก็อปปี้โปรไฟล์ สำเร็จ {}".format(contact.displayName))
 
-                            elif cmd == "myrestore":
+                            elif cmd == "กลับร่าง":
                                 try:
                                     clientProfile = client.getProfile()
                                     clientProfile.displayName = str(settings["myProfile"]["displayName"])
@@ -1391,10 +1389,10 @@ async def clientBot(op):
                                     client.updateProfileCoverById(coverId)
                                     client.sendMessage(to, "Success restore profile waiting in prossesing")
                                 except Exception as e:
-                                    client.sendMessage(to, "Failid restore profile")
+                                    client.sendMessage(to, "✒ กลับร่างเดิมแล้ว")
                                     logError(error)
 
-                            elif cmd == "backup":
+                            elif cmd == "คืนร่าง":
                                 try:
                                     profile = client.getProfile()
                                     settings["myProfile"]["displayName"] = str(profile.displayName)
@@ -1404,9 +1402,9 @@ async def clientBot(op):
                                     settings["myProfile"]["coverId"] = str(coverId)
                                     client.sendMessage(to, "Success backup profile")
                                 except Exception as e:
-                                    client.sendMessage(to, "Failid backup profile")
+                                    client.sendMessage(to, "✒ คืนร่างแล้ว")
                                     logError(error)
-                            elif cmd.startswith("mid "):
+                            elif cmd.startswith("ไอดี "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1415,11 +1413,11 @@ async def clientBot(op):
                                     for mention in mentionees:
                                         if mention["M"] not in lists:
                                             lists.append(mention["M"])
-                                    ret_ = "[ Mid User ]"
+                                    ret_ = "[ ไอดี คนอื่น ]"
                                     for ls in lists:
                                         ret_ += "\n{}".format(str(ls))
                                     client.sendMessage(to, str(ret_))
-                            elif cmd.startswith("tabok "):
+                            elif cmd.startswith("เตะ "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1436,7 +1434,7 @@ async def clientBot(op):
                                         except:
                                             client.kickoutFromGroup(msg.to,[ls])
 
-                            elif cmd.startswith("name "):
+                            elif cmd.startswith("ชื่อ "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1448,7 +1446,7 @@ async def clientBot(op):
                                     for ls in lists:
                                         contact = client.getContact(ls)
                                         client.sendMessage(to, "[ Display Name ]\n{}".format(str(contact.displayName)))
-                            elif cmd.startswith("bio "):
+                            elif cmd.startswith("ตัส "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1460,7 +1458,7 @@ async def clientBot(op):
                                     for ls in lists:
                                         contact = client.getContact(ls)
                                         client.sendMessage(to, "[ Status Message ]\n{}".format(str(contact.statusMessage)))
-                            elif cmd.startswith("picture"):
+                            elif cmd.startswith("รูป "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1473,7 +1471,7 @@ async def clientBot(op):
                                         contact = client.getContact(ls)
                                         path = "http://dl.profile.line.naver.jp/{}".format(contact.pictureStatus)
                                         client.sendImageWithURL(to, str(path))
-                            elif cmd.startswith("contact "):
+                            elif cmd.startswith("คท "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1484,7 +1482,7 @@ async def clientBot(op):
                                             lists.append(mention["M"])
                                     for ls in lists:
                                         client.sendContact(to,str(ls))
-                            elif cmd.startswith("videoprofile "):
+                            elif cmd.startswith("วิดีโอ "):
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1497,7 +1495,7 @@ async def clientBot(op):
                                         contact = client.getContact(ls)
                                         path = "http://dl.profile.line.naver.jp/{}/vp".format(contact.pictureStatus)
                                         client.sendVideoWithURL(to, str(path))
-                            elif cmd.startswith("cover "):
+                            elif cmd.startswith("ปก "):
                                 if client != None:
                                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                                         names = re.findall(r'@(\w+)', text)
@@ -1512,34 +1510,34 @@ async def clientBot(op):
                                             path = str(channel)
                                             client.sendImageWithURL(to, str(path))
 # Pembatas Script #
-                            elif cmd == 'creator':
+                            elif cmd == 'กลุ่มใคร':
                                 group = client.getGroup(to)
                                 GS = group.creator.mid
                                 client.sendContact(to, GS)
-                            elif cmd == 'groupid':
+                            elif cmd == 'ไอดีกลุ่ม':
                                 gid = client.getGroup(to)
-                                client.sendMessage(to, "[ID Group : ]\n" + gid.id)
-                            elif cmd == 'picture group':
+                                client.sendMessage(to, "[ ✒ ไอดี กลุ่ม : ]\n" + gid.id)
+                            elif cmd == 'รูปกลุ่ม':
                                 group = client.getGroup(to)
                                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                                 client.sendImageWithURL(to, path)
-                            elif cmd == 'group name':
+                            elif cmd == 'ชื่อกลุ่ม':
                                 gid = client.getGroup(to)
-                                client.sendMessage(to, "[Nama Group : ]\n" + gid.name)
-                            elif cmd == "rejectall":
+                                client.sendMessage(to, "[ ✒ ชื่อกลุ่ม : ]\n" + gid.name)
+                            elif cmd == "ลบกลุ่มค้างเชิญ":
                                 ginvited = client.getGroupIdsInvited()
                                 if ginvited != [] and ginvited != None:
                                     for gid in ginvited:
                                         client.rejectGroupInvitation(gid)
-                                    client.sendMessage(msg.to, "Success canceled {} group invitation".format(str(len(ginvited))))
+                                    client.sendMessage(msg.to, "✒ ลบค้างเชิญ {} กลุ่มแล้ว".format(str(len(ginvited))))
                                 else:
-                                    client.sendMessage(msg.to, "there is no invitation group")
-                            elif cmd == 'linkqr':
+                                    client.sendMessage(msg.to, "✒ ไม่มีกลุ่มค้างเชิญ")
+                            elif cmd == 'ลิ้งกลุ่ม':
                                 if msg.toType == 2:
                                     group = client.getGroup(to)
                                     if group.preventedJoinByTicket == False:
                                         ticket = client.reissueGroupTicket(to)
-                                        client.sendMessage(to, "[ Group Ticket ]\nhttps://line.me/R/ti/g/{}".format(str(ticket)))
+                                        client.sendMessage(to, "[ ✒ ลิ้งกลุ่ม ]\nhttps://line.me/R/ti/g/{}".format(str(ticket)))
                                     else:
                                         client.sendMessage(to, "Grup qr closed silahkan buka terlebih dahulu dengan {}openqr".format(str(settings["keyCommand"])))
                             elif cmd == 'qr on':
