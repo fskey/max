@@ -59,8 +59,9 @@ cctv = {
 
 settings = {
     "autoAdd": True,
-    "autoBlock": True,
+    "autoBlock": False,
     "autoJoin": False,
+    'autoCancel':{"on":True,"members":4},
     "autoLeave": False,
     "groupParam": {},
     "autoRead": False,
@@ -779,27 +780,49 @@ async def clientBot(op):
         if op.type == 5:
             print ("[ 5 ] NOTIFIED ADD CONTACT")
             if settings["autoAdd"] == True:
-               client.findAndAddContactsByMid(op.param1)
-               sendMention(op.param1, "Hy @!,Thanx you for add me :3",[op.param2])
+               sendMention(op.param1, "แอดมาหาพ่อมึงหรอ @! ไอ่ควาย 55555555",[op.param1])
                client.blockContact(op.param1)
-            #if settings["autoBlock"] == True:
-               #client.blockContacts(op.param2)
+            if settings["autoBlock"] == True:
+               client.blockContact(op.param1)
 #-----------------------------------
-
         if op.type == 13:
            if clientMid in op.param3:
               if op.param2 in settings["team"]:
                  client.acceptGroupInvitation(op.param1)
         if op.type == 13:
-            print ("[ 13 ] NOTIFIED INVITE INTO GROUP")
-            if clientMid in op.param3:
+            if clientMID in op.param3:
+                G = client.getGroup(op.param1)
                 if settings["autoJoin"] == True:
-                    client.acceptGroupInvitation(op.param1)
+                    if settings["autoCancel"]["on"] == True:
+                        if len(G.members) <= settings["autoCancel"]["members"]:
+                            client.rejectGroupInvitation(op.param1)
+                        else:
+                            client.acceptGroupInvitation(op.param1)
+                    else:
+                        client.acceptGroupInvitation(op.param1)
+                elif settings["autoCancel"]["on"] == True:
+                    if len(G.members) <= settings["autoCancel"]["members"]:
+                        client.rejectGroupInvitation(op.param1)
+            else:
+                Inviter = op.param3.replace("",',')
+                InviterX = Inviter.split(",")
+                matched_list = []
+                for tag in settings["blacklist"]:
+                    matched_list+=[str for str in InviterX if str == tag]
+                if matched_list == []:
+                    pass
+                else:
+                    client.cancelGroupInvitation(op.param1, matched_list)				
         if op.type == 13:
-            if clientMid in op.param3:
-                if settings["autoLeave"] == True:
-                    client.acceptGroupInvitation(op.param1)
-                    client.leaveGroup(op.param1)
+            group = client.getGroup(op.param1)
+            group.members = [] if not group.members else group.members
+            if settings["autoLeave"] == True:
+                if len(group.members) <= 4:
+                    client.acceptGroupInvitation(group.id)
+                    client.sendMessage(group.id,"แวะเข้ามาดูเด็กปัญญาอ่อนรัน55555")
+                    client.leaveGroup(group.id)
+                    ronum = (ronum + 1)
+                    print(ronum)
         if op.type == 13:
             if clientMid in op.param3:
                 if settings["autoReject"] == True:
@@ -905,22 +928,22 @@ async def clientBot(op):
                             return
                         else:
                             cmd = command(text)
-                            if cmd == "help":
+                            if cmd == "คำสั่ง":
                                 helpMessage = helpmessage()
                                 client.sendMessage(to, str(helpMessage))
-                            elif cmd == "help settings":
+                            elif cmd == "คำสั่ง1":
                                 helpSettings = helpsettings()
                                 client.sendMessage(to, str(helpSettings))
-                            elif cmd == "help media":
+                            elif cmd == "คำสั่ง2":
                                 helpMedia = helpmedia()
                                 client.sendMessage(to, str(helpMedia))
-                            elif cmd == "help group":
+                            elif cmd == "คำสั่ง3":
                                 helpGroup = helpgroup()
                                 client.sendMessage(to, str(helpGroup))
-                            elif cmd == "help bot":
+                            elif cmd == "คำสั่ง4":
                                 helpBot = helpbot()
                                 client.sendMessage(to, str(helpBot))
-                            elif cmd == "help trans":
+                            elif cmd == "คำสั่ง5":
                                 helpTranslate = helptranslate()
                                 client.sendMessage(to, str(helpTranslate))
                             elif cmd.startswith("changekey:"):
@@ -931,61 +954,54 @@ async def clientBot(op):
                                 else:
                                     settings["keyCommand"] = str(key).lower()
                                     client.sendMessage(to, "Success mengubah key command menjadi [ {} ]".format(str(key).lower()))
-                            elif cmd.startswith("setwelcome:"):
+                            elif cmd.startswith("ตั้งคนเข้า:"):
                                 sep = text.split(":")
                                 key = text.replace(sep[0] + ":","")
                                 settings["welcometext"][msg.to] = "pipo"
                                 settings["textwelcome"] = str(key).lower()
-                                client.sendMessage(to, "Success mengubah welcometext menjadi [ {} ]".format(str(key).lower()))
-                            elif cmd.startswith("setmention:"):
+                                client.sendMessage(to, "✒ เปลี่ยนคำต้อนรับเป็น [ {} ]".format(str(key).lower()))
+                            elif cmd.startswith("ตั้งคนแทค:"):
                                 sep = text.split(":")
                                 key = text.replace(sep[0] + ":","")
                                 settings["update_mention"] = True
                                 settings["save_mention"] = str(key).lower()
-                                client.sendMessage(to, "Success mengubah text mention menjadi [ {} ]".format(str(key).lower()))
-                            elif cmd.lower().startswith("broadcast:"):
+                                client.sendMessage(to, "✒ เปลี่ยนคนแทคเป็น [ {} ]".format(str(key).lower()))
+                            elif cmd.lower().startswith("ประกาศ:"):
                                  sep = text.split(":")
                                  tum = text.replace(sep[0] + ":","")
-                                 me = client.getContact(lineMID)
+                                 me = client.getContact(clientMID)
                                  teman = client.getAllContactIds()
                                  for cerry in teman:
-                                     client.sendMessage(cerry, tum + "\nBroadcasted By:\n" + me.displayName)
-                            elif cmd.startswith("groupcast:"):
+                                     client.sendMessage(cerry, tum + "\n✒ ประกาศ ประกาศ\nโดย:\n" + me.displayName)
+                            elif cmd.startswith("กลุ่มแชท:"):
                                  sep = text.split(":")
                                  tum = text.replace(sep[0] + ":","")
-                                 me = client.getContact(lineMID)
+                                 me = client.getContact(clientMID)
                                  grup = client.getGroupIdsJoined()
                                  for cerry in grup:
                                      client.sendMessage(cerry, tum + "\nBroadcasted By:\n" + me.displayName)
-                            elif cmd.startswith("say"):
+                            elif cmd.startswith("พูด"):
                                      pisah = msg.text.split(" ")
                                      isi = msg.text.replace(pisah[0]+" ","")
-                                     client2.sendMessage(msg.to,str(isi))
-                                     client3.sendMessage(msg.to,str(isi))
-#                                     client4.sendMessage(msg.to,str(isi))
-#                                     client5.sendMessage(msg.to,str(isi))
+                                     client.sendMessage(msg.to,str(isi))
 
-                            elif cmd == "addsticker":
+                            elif cmd == "สติกเกอร์คนแทค":
                                  settings["save_sticker"] = True
-                                 client.sendMessage(to,"please send sticker")
-                            elif cmd == "speed":
+                                 client.sendMessage(to,"✒ ส่งสติกเกอร์ลงมา")
+                            elif cmd == "sp":
                                 start = time.time()
-                                client.sendMessage(to, "Waiting...")
+                                client.sendMessage(to, "กำลังวัดความเร็ว...")
                                 elapsed_time = time.time() - start
-                                client.sendMessage(to, "{} detik".format(str(elapsed_time)))
-                            elif cmd == "dell":
+                                client.sendMessage(to, "{} วินาที".format(str(elapsed_time)))
+                            elif cmd == "ลบแชท":
                                 client.removeAllMessages(op.param2)
-#                                client2.removeAllMessages(op.param2)
-#                                client3.removeAllMessages(op.param2)
-#                                client4.removeAllMessages(op.param2)
-#                                client5.removeAllMessages(op.param2)
-                                client.sendMessage(to,"Success clearchat")
-                            elif cmd == "runtime":
+                                client.sendMessage(to,"✒ ลบแชทเรียบร้อย")
+                            elif cmd == "ออน":
                                 timeNow = time.time()
                                 runtime = timeNow - botStart
                                 runtime = format_timespan(runtime)
-                                client.sendMessage(to, "The Bot Is Running {}".format(str(runtime)))
-                            elif cmd == "myinfo":
+                                client.sendMessage(to, "บอททำงานมาแล้ว {}".format(str(runtime)))
+                            elif cmd == "ข้อมูล":
                                 saya = client.getContact(clientMid)
                                 grupku = client.getGroupIdsJoined()
                                 temanku = client.getAllContactIds()
@@ -1002,95 +1018,93 @@ async def clientBot(op):
                                 client.sendMessage(to, "Please waiting for in 5 minutes")
                                 restartBot()
 # Pembatas Script #
-                            elif cmd == "add on":
+                            elif cmd == "บล็อค เปิด":
                                 settings["autoAdd"] = True
-                                client.sendMessage(to, "Success mengaktifkan auto add")
-                            elif cmd == "add off":
+                                client.sendMessage(to, "✒ เปิดบล็อคออโต้เรียบร้อย")
+                            elif cmd == "บล็อค ปิด":
                                 settings["autoAdd"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto add")
-                            elif cmd == "join on":
+                                client.sendMessage(to, "✒ เปิดบล็อคออโต้เรียบร้อย")
+                            elif cmd == "เข้ากลุ่ม เปิด":
                                 settings["autoJoin"] = True
                                 settings["autoLeave"] = False
-                                client.sendMessage(to, "Success mengaktifkan auto join")
-                            elif cmd == "join off":
+                                client.sendMessage(to, "✒ เปิดเข้ากลุ่มเรียบร้อย")
+                            elif cmd == "เข้ากลุ่ม ปิด":
                                 settings["autoJoin"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto join")
-                            elif cmd == "leave on":
+                                client.sendMessage(to, "✒ ปิดเข้ากลุ่มเรียบร้อย")
+                            elif cmd == "ออกกลุ่ม เปิด":
                                 settings["autoLeave"] = True
-                                settings["autoJoin"] = False
-                                client.sendMessage(to, "Success mengaktifkan auto leave")
-                            elif cmd == "leave off":
+                                client.sendMessage(to, "✒ เปิดออกกลุ่มเรียบร้อย")
+                            elif cmd == "ออกกลุ่ม ปิด":
                                 settings["autoLeave"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto leave")
-                            elif cmd == "respon on":
+                                client.sendMessage(to, "✒ ปิดเข้ากลุ่มเรียบร้อย")
+                            elif cmd == "คนแทค เปิด":
                                 settings["autoRespon"] = True
-                                client.sendMessage(to, "Success mengaktifkan auto respon")
-                            elif cmd == "respon off":
+                                client.sendMessage(to, "✒ เปิดคนแทคเรียบร้อย")
+                            elif cmd == "คนแทค ปิด":
                                 settings["autoRespon"] = False
                                 settings["update_mention"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto respon")
-                            elif cmd == "read on":
+                                client.sendMessage(to, "✒ ปิดคนแทคเรียบร้อย")
+                            elif cmd == "อ่าน เปิด":
                                 settings["autoRead"] = True
-                                client.sendMessage(to, "Success mengaktifkan auto read")
-                            elif cmd == "read off":
+                                client.sendMessage(to, "✒ เปิดอ่านกลุ่มเรียบร้อย")
+                            elif cmd == "อ่าน ปิด":
                                 settings["autoRead"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto read")
-                            elif cmd == "reject on":
+                                client.sendMessage(to, "✒ ปิดอ่านกลุ่มเรียบร้อย")
+                            elif cmd == "ลบเชิญ เปิด":
                                 settings["autoReject"] = True
-#                                settings["autoJoin"] = False
-#                                settings["autoLeave"] = False
-                                client.sendMessage(to, "Success on reject all invite")
-                            elif cmd == "reject off":
+                                settings["autoLeave"] = False
+                                client.sendMessage(to, "✒ เปิดลบเชิญกลุ่มเรียบร้อย")
+                            elif cmd == "ลบเชิญ ปิด":
                                 settings["autoReject"] = False
-                                client.sendMessage(to, "Success off reject all invite")
-                            elif cmd == "ticket on":
+                                client.sendMessage(to, "✒ ปิดลบเชิญกลุ่มเรียบร้อย")
+                            elif cmd == "มุดลิ้ง เปิด":
                                 settings["autoJoinTicket"] = True
-                                client.sendMessage(to, "Success mengaktifkan auto join dengan ticket")
-                            elif cmd == "ticket off":
+                                client.sendMessage(to, "✒ เปิดมุดลิ้งเรียบร้อย")
+                            elif cmd == "มุดลิ้ง ปิด":
                                 settings["autoJoin"] = False
-                                client.sendMessage(to, "Success menonaktifkan auto join dengan ticket")
-                            elif cmd == "contact on":
+                                client.sendMessage(to, "✒ ปิดมุดลิ้งเรียบร้อย")
+                            elif cmd == "คท เปิด":
                                 settings["checkContact"] = True
-                                client.sendMessage(to, "Success mengaktifkan check contact")
-                            elif cmd == "contact off":
+                                client.sendMessage(to, "✒ เปิดคทเรียบร้อย")
+                            elif cmd == "คท ปิด":
                                 settings["checkContact"] = False
-                                client.sendMessage(to, "Success menonaktifkan check contact")
-                            elif cmd == "post on":
+                                client.sendMessage(to, "✒ ปิดคทเรียบร้อย")
+                            elif cmd == "โพส เปิด":
                                 settings["checkPost"] = True
-                                client.sendMessage(to, "Success mengaktifkan check post")
-                            elif cmd == "post off":
+                                client.sendMessage(to, "✒ เปิดโพสเรียบร้อย")
+                            elif cmd == "โพส ปิด":
                                 settings["checkPost"] = False
-                                client.sendMessage(to, "Success menonaktifkan check post")
-                            elif cmd == "sticker on":
+                                client.sendMessage(to, "✒ ปิดโพสเรียบร้อย")
+                            elif cmd == "สติกเกอร์ เปิด":
                                 settings["checkSticker"] = True
-                                client.sendMessage(to, "Success mengaktifkan check sticker")
-                            elif cmd == "sticker off":
+                                client.sendMessage(to, "✒ เปิดสติกเกอร์เรียบร้อย")
+                            elif cmd == "สติกเกอร์ ปิด":
                                 settings["checkSticker"] = False
-                                client.sendMessage(to, "Success menonaktifkan check sticker")
-                            elif cmd == "unsend on":
+                                client.sendMessage(to, "✒ ปิดสติกเกอร์เรียบร้อย")
+                            elif cmd == "ยกเลิกข้อความ เปิด":
                                 settings["unsendMessage"] = True
-                                client.sendMessage(to, "Success mengaktifkan unsend message")
-                            elif cmd == "unsend off":
+                                client.sendMessage(to, "✒ เปิดยกเลิกข้อความเรียบร้อย")
+                            elif cmd == "ยกเลิกข้อความ ปิด":
                                 settings["unsendMessage"] = False
-                                client.sendMessage(to, "Success menonaktifkan unsend message")
-                            elif cmd == "chatsticker on":
+                                client.sendMessage(to, "✒ ปิดยกเลิกข้อความเรียบร้อย")
+                            elif cmd == "แชทสติกเกอร์ เปิด":
                                 settings["chatEvent"][msg.to] = "pipo"
-                                client.sendMessage(to,"Success mengaktifkan chatsticker")
-                            elif cmd == "chatsticker off":
+                                client.sendMessage(to,"✒ เปิดแชทสติกเกอร์เรียบร้อย")
+                            elif cmd == "แชทสติกเกอร์ ปิด":
                                 del settings["chatEvent"][msg.to]
-                                client.sendMessage(to,"Success menonaktifkan chatsticker")
-                            elif cmd == "welcomeimg on":
+                                client.sendMessage(to,"✒ ปิดแชทสติกเกอร์เรียบร้อย")
+                            elif cmd == "ต้อนรับรูป เปิด":
                                 settings["welcomeimg"][msg.to] = "pipo"
-                                client.sendMessage(to,"Success mengaktifkan welcomeimage")
-                            elif cmd == "welcomeimg off":
+                                client.sendMessage(to,"✒ เปิดต้อนรับรูปเรียบร้อย")
+                            elif cmd == "ต้อนรับรูป ปิด":
                                 del settings["welcomeimg"][msg.to]
-                                client.sendMessage(to,"Success menonaktifkan welcomeimage")
-                            elif cmd == "welcometext on":
+                                client.sendMessage(to,"✒ ปิดต้อนรับรูปเรียบร้อย")
+                            elif cmd == "ต้อนรับข้อความ เปิด":
                                 settings["welcome"][msg.to] = "pipo"
-                                client.sendMessage(to,"Success mengaktifkan welcometext")
-                            elif cmd == "welcometext off":
+                                client.sendMessage(to,"✒ เปิดต้อนรับข้อความเรียบร้อย")
+                            elif cmd == "ต้อนรับข้อความ ปิด":
                                 del settings["welcome"][msg.to]
-                                client.sendMessage(to,"Success menonaktifkan welcometext")
+                                client.sendMessage(to,"✒ เปิดต้อนรับข้อความเรียบร้อย")
                             elif cmd == 'sider on':
                                 try:
                                     del cctv['point'][msg.to]
