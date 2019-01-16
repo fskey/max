@@ -90,7 +90,7 @@ settings = {
     "checkContact": False,
     "checkPost": False,
     "checkSticker": False,
-    "save_sticker": False,
+    "save_sticker": True,
     "changePictureProfile": False,
     "changeGroupPicture": [],
     "chatEvent": {},
@@ -98,14 +98,14 @@ settings = {
     "stkid": {},
     "welcome": {},
     "team": {},
-    "welcomeimg": {},
-    "welcometext": {},
+    "welcomeimg": True,
+    "welcometext": True,
     "friendlist": {},
     "like": {},
     "autoPurge": {},
     "update_mention": False,
     "save_mention": " ",
-    "textwelcome": ".....",
+    "textwelcome": "สวัสดี ชื่ออะไรครับ ",
     "keyCommand": ".",
     "myProfile": {
         "displayName": "",
@@ -460,47 +460,45 @@ def helpmessage():
         key = key.title()
     else:
         key = ''
-    helpMessage =   "sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n\n" + \
-                    key + "⚅ Help" + "\n" + \
-                    key + "⚅ Help Trans" + "\n" + \
-                    key + "⚅ Help Media" + "\n" + \
-                    key + "⚅ Help Settings" + "\n" + \
-                    key + "⚅ Help Group" + "\n" + \
-                    key + "⚅ Help Bot" + "\n" + \
-                    key + "⚅ Reboot" + "\n" + \
-                    key + "⚅ Runtime" + "\n" + \
-                    key + "⚅ Speed" + "\n" + \
-                    key + "⚅ Settings" + "\n" + \
-                    key + "⚅ MyKey" + "\n" + \
-                    key + "⚅ SetKey「On/Off」" + "\n" + \
-                    key + "⚅ Sb「On/Off」" + "\n" + \
-                    key + "⚅ Me" + "\n" + \
-                    key + "⚅ Myinfo" + "\n" + \
-                    key + "⚅ Gift" + "\n" + \
-                    key + "⚅ Mymid" + "\n" + \
-                    key + "⚅ Myname" + "\n" + \
-                    key + "⚅ Mybio" + "\n" + \
-                    key + "⚅ Mypicture" + "\n" + \
-                    key + "⚅ Myvideoprofile" + "\n" + \
-                    key + "⚅ Mycover" + "\n" + \
-                    key + "⚅ Contact「Mention」" + "\n" + \
-                    key + "⚅ Mid「Mention」" + "\n" + \
-                    key + "⚅ Name「Mention」" + "\n" + \
-                    key + "⚅ Bio「Mention」" + "\n" + \
-                    key + "⚅ Picture「Mention」" + "\n" + \
-                    key + "⚅ Videoprofile「Mention」" + "\n" + \
-                    key + "⚅ Cover「Mention」" + "\n" + \
-                    key + "⚅ Myrestore" + "\n" + \
-                    key + "⚅ Backup" + "\n" + \
-                    key + "⚅ Rejectall" + "\n" + \
-                    key + "⚅ Myticket" + "\n" + \
-                    key + "⚅ Byee" + "\n" + \
-                    key + "⚅ Bye all" + "\n" + \
-                    key + "⚅ Rechat" + "\n" + \
-                    key + "⚅ Refresh" + "\n" + \
-                    key + "⚅ Tagall" + "\n" + \
-                    key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-                    "http://line.me/ti/p/~maxsett"
+    helpMessage =   "╭──────────╮" + "\n\n" + \
+                    key + "│≫ คำสั่ง" + "\n" + \
+                    key + "│≫ คำสั่ง1" + "\n" + \
+                    key + "│≫ คำสั่ง2" + "\n" + \
+                    key + "│≫ คำสั่ง3" + "\n" + \
+                    key + "│≫ คำสั่ง4" + "\n" + \
+                    key + "│≫ สติกเกอร์คนแทค" + "\n" + \
+                    key + "│≫ รีบอท" + "\n" + \
+                    key + "│≫ ออน" + "\n" + \
+                    key + "│≫ Sp" + "\n" + \
+                    key + "│≫ เชค" + "\n" + \
+                    key + "│≫ คท" + "\n" + \
+                    key + "│≫ ข้อมูล" + "\n" + \
+                    key + "│≫ ของขวัญ" + "\n" + \
+                    key + "│≫ ไอดี" + "\n" + \
+                    key + "│≫ ชื่อ" + "\n" + \
+                    key + "│≫ ตัส" + "\n" + \
+                    key + "│≫ รูป" + "\n" + \
+                    key + "│≫ วิดีโอ" + "\n" + \
+                    key + "│≫ ปก" + "\n" + \
+                    key + "│≫ คท「@」" + "\n" + \
+                    key + "│≫ ไอดี「@」" + "\n" + \
+                    key + "│≫ ชื่อ「@」" + "\n" + \
+                    key + "│≫ ตัส「@」" + "\n" + \
+                    key + "│≫ รูป「@」" + "\n" + \
+                    key + "│≫ ปก「@」" + "\n" + \
+                    key + "│≫ ก็อป「@」" + "\n" + \
+                    key + "│≫ กลับร่าง" + "\n" + \
+                    key + "│≫ ลบกลุ่มค้างเชิญ" + "\n" + \
+                    key + "│≫ ลิ้งกู" + "\n" + \
+                    key + "│≫ ออกกลุ่ม" + "\n" + \
+                    key + "│≫ ออกหมด" + "\n" + \
+                    key + "│≫ ลบแชท" + "\n" + \
+                    key + "│≫ แทค" + "\n" + \
+                    key + "╰──────────╯" + "\n" + \
+                    key + "╭──────────╮" + "\n" + \
+                    key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+                    key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+                    "╰──────────╯"
     return helpMessage
 
 def helpsettings():
@@ -508,36 +506,31 @@ def helpsettings():
         key = settings['keyCommand']
     else:
         key = ''
-    helpSettings =  "Hᴇʟᴘ sᴇᴛᴛɪɴɢs" + "\n" + \
-                          key + "⚅ Add「On/Off」" + "\n" + \
-                          key + "⚅ Join「On/Off」" + "\n" + \
-                          key + "⚅ Ticket「On/Off」" + "\n" + \
-                          key + "⚅ Leave「On/Off」" + "\n" + \
-                          key + "⚅ Read「On/Off」" + "\n" + \
-                          key + "⚅ Respon「On/Off」" + "\n" + \
-                          key + "⚅ Contact「On/Off」" + "\n" + \
-                          key + "⚅ Post「On/Off」" + "\n" + \
-                          key + "⚅ Sticker「On/Off」" + "\n" + \
-                          key + "⚅ Unsend「On/Off」" + "\n" + \
-                          key + "⚅ Sider「On/Off」" + "\n" + \
-                          key + "⚅ Reject「On/Off」" + "\n" + \
-                          key + "⚅ Chatsticker「On/Off」" + "\n" + \
-                          key + "⚅ Welcomeimg「On/Off」" + "\n" + \
-                          key + "⚅ Welcometext「On/Off」" + "\n" + \
-                          key + "⚅ Namelock「On/Off」" + "\n" + \
-                          key + "⚅ Iconlock「On/Off」" + "\n" + \
-                          key + "⚅ Proqr「On/Off」" + "\n" + \
-                          key + "⚅ Url「On/Off」" + "\n" + \
-                          key + "⚅ Clear「On/Off」" + "\n" + \
-                          key + "⚅ Kick「On/Off」" + "\n" + \
-                          key + "⚅ Memberlock「On/Off」" + "\n" + \
-                          key + "⚅ Proinvite「On/Off」" + "\n" + \
-                          key + "⚅ Setwelcome:「Query」" + "\n" + \
-                          key + "⚅ Setmention:「Query」" + "\n" + \
-                          key + "⚅ Changename:「Query」" + "\n" + \
-                          key + "⚅ Changebio:「Query」" + "\n" + \
-                          key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-                          "http://line.me/ti/p/~maxsett"
+    helpSettings =  "╭──────────╮" + "\n" + \
+                          key + "│≫ บล็อค「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ เข้ากลุ่ม「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ มุดลิ้ง「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ออกกลุ่ม「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ อ่าน「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ คนแทค「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ คท「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ โพส「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ สติกเกอร์「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ยกเลิกข้อความ「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ คนแอบ「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ลบเชิญ「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ แชทสติกเกอร์「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ต้อนรับรูป「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ต้อนรับข้อความ「เปิด/ปิด」" + "\n" + \
+                          key + "│≫ ตั้งคนเข้า:「ข้อความ」" + "\n" + \
+                          key + "│≫ ตัังคนแทค:「ข้อความ」" + "\n" + \
+                          key + "│≫ เปลี่ยนชื่อ:「ข้อความ」" + "\n" + \
+                          key + "│≫ เปลี่ยนตัส:「ข้อความ」" + "\n" + \
+                          key + "╰──────────╯" + "\n" + \
+                          key + "╭──────────╮" + "\n" + \
+                          key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+                          key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+                          "╰──────────╯"
     return helpSettings
 
 def helpmedia():
@@ -546,28 +539,30 @@ def helpmedia():
         key = key.title()
     else:
         key = ''
-    helpMedia =  "Hᴇʟᴘ Mᴇᴅɪᴀ" + "\n" + \
-               key + "⚅ Ytmp3「Query」" + "\n" + \
-               key + "⚅ Horoscop「Query」" + "\n" + \
-               key + "⚅ Zodiak「Query」" + "\n" + \
-               key + "⚅ Ytmp4「Query」" + "\n" + \
-               key + "⚅ Google search「Query」" + "\n" + \
-               key + "⚅ Checkdate「Date」" + "\n" + \
-               key + "⚅ Checkwebsite「url」" + "\n" + \
-               key + "⚅ Hitung「no+×÷no」" + "\n" + \
-               key + "⚅ Mysticker" + "\n" + \
-               key + "⚅ Line id" + "\n" + \
-               key + "⚅ Instainfo「Name」" + "\n" + \
-               key + "⚅ Instapost「Name」|「No」" + "\n" + \
-               key + "⚅ Instastory「Name」|「No」" + "\n" + \
-               key + "⚅ Youtube「Search」" + "\n" + \
-               key + "⚅ Bokep「Search」" + "\n" + \
-               key + "⚅ Tulis「Search」" + "\n" + \
-               key + "⚅ Music「Search」" + "\n" + \
-               key + "⚅ Lyric「Search」" + "\n" + \
-               key + "⚅ Image「Search」" + "\n" + \
-               "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-               "http://line.me/ti/p/~maxsett"
+    helpMedia =  "╭──────────╮" + "\n" + \
+               key + "│≫ ยูทูป「ข้อความ」" + "\n" + \
+               key + "│≫ รูป「ข้อความ」" + "\n" + \
+               key + "│≫ เพลง「ข้อความ」" + "\n" + \
+               key + "│≫ Zodiak「Query」" + "\n" + \
+               key + "│≫ Ytmp3「Query」" + "\n" + \
+               key + "│≫ Google search「Query」" + "\n" + \
+               key + "│≫ Checkdate「Date」" + "\n" + \
+               key + "│≫ Checkwebsite「url」" + "\n" + \
+               key + "│≫ Hitung「no+×÷no」" + "\n" + \
+               key + "│≫ Mysticker" + "\n" + \
+               key + "│≫ Line id" + "\n" + \
+               key + "│≫ Instainfo「Name」" + "\n" + \
+               key + "│≫ Instapost「Name」|「No」" + "\n" + \
+               key + "│≫ Instastory「Name」|「No」" + "\n" + \
+               key + "│≫ Youtube「Search」" + "\n" + \
+               key + "│≫ Bokep「Search」" + "\n" + \
+               key + "│≫ Tulis「Search」" + "\n" + \
+               key + "│≫ Lyric「Search」" + "\n" + \
+               key + "╰──────────╯" + "\n" + \
+               key + "╭──────────╮" + "\n" + \
+               key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+               key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+               "╰──────────╯"
     return helpMedia
 
 def helpgroup():
@@ -576,22 +571,26 @@ def helpgroup():
         key = key.title()
     else:
         key = ''
-    helpGroup =  "Hᴇʟᴘ Gʀᴏᴜᴘ" + "\n" + \
-              key + "⚅ Creator" + "\n" + \
-              key + "⚅ Groupid" + "\n" + \
-              key + "⚅ Groupname" + "\n" + \
-              key + "⚅ Picture group" + "\n" + \
-              key + "⚅ Linkqr" + "\n" + \
-              key + "⚅ Qr「On/Off」" + "\n" + \
-              key + "⚅ Grouplist" + "\n" + \
-              key + "⚅ Member group" + "\n" + \
-              key + "⚅ Nk" + "\n" + \
-              key + "⚅ Kickall" + "\n" + \
-              key + "⚅ Info group" + "\n" + \
-              key + "⚅ Setgroupimage" + "\n" + \
-              key + "⚅ Gn:「Query」" + "\n" + \
-              key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-              "http://line.me/ti/p/~maxsett"
+    helpGroup =  "╭──────────╮" + "\n" + \
+              key + "│≫ ผู้สร้างกลุ่ม" + "\n" + \
+              key + "│≫ ไอดีกลุ่ม" + "\n" + \
+              key + "│≫ ชื่อกลุ่ม" + "\n" + \
+              key + "│≫ รูปกลุ่ม" + "\n" + \
+              key + "│≫ ประกาศ:「ข้อความ」" + "\n" + \
+              key + "│≫ ลิ้งกลุ่ม" + "\n" + \
+              key + "│≫ เปิดลิ้ง" + "\n" + \
+              key + "│≫ ปิดลิ้ง" + "\n" + \
+              key + "│≫ กลุ่ม" + "\n" + \
+              key + "│≫ สมาชิกกลุ่ม" + "\n" + \
+              key + "│≫ เตะ「@」" + "\n" + \
+              key + "│≫ ข้อมูลกลุ่ม" + "\n" + \
+              key + "│≫ เปลี่ยนรูปกลุ่ม" + "\n" + \
+              key + "│≫ เปลี่ยนชื่อกลุ่ม:「ชื่อ」" + "\n" + \
+              key + "╰──────────╯" + "\n" + \
+              key + "╭──────────╮" + "\n" + \
+              key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+              key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+              "╰──────────╯"
     return helpGroup
 
 def helpbot():
@@ -600,52 +599,33 @@ def helpbot():
         key = key.title()
     else:
         key = ''
-    helpBot =  "Hᴇʟᴘ Bᴏᴛ" + "\n" + \
-          key + "⚅ Listblock" + "\n" + \
-          key + "⚅ Block contact" + "\n" + \
-          key + "⚅ Unblockall" + "\n" + \
-          key + "⚅ Changepicture" + "\n" + \
-          key + "⚅ Respon" + "\n" + \
-          key + "⚅ In" + "\n" + \
-          key + "⚅ Bye" + "\n" + \
-          key + "⚅ Ghost in|lv" + "\n" + \
-          key + "⚅ Botlist" + "\n" + \
-          key + "⚅ Bot add 「Mention」" + "\n" + \
-          key + "⚅ Delbot 「Mention」" + "\n" + \
-          key + "⚅ Kick 「Mention」" + "\n" + \
-          key + "⚅ Kicker 「Mention」" + "\n" + \
-          key + "⚅ Bunuh 「Mention」" + "\n" + \
-          key + "⚅ Tabok 「Mention」" + "\n" + \
-          key + "⚅ Say「Query」" + "\n" + \
-          key + "⚅ B1 setpict" + "\n" + \
-          key + "⚅ B2 setpict" + "\n" + \
-          key + "⚅ B1 setname:「Query」" + "\n" + \
-          key + "⚅ B2 setname:「Query」" + "\n" + \
-          key + "⚅ B1 setbio:「Query」" + "\n" + \
-          key + "⚅ B2 setbio:「Query」" + "\n" + \
-          key + "⚅ B1 restore" + "\n" + \
-          key + "⚅ B2 restore" + "\n" + \
-          key + "⚅ Addsticker" + "\n" + \
-          key + "⚅ Ban 「Mention」" + "\n" + \
-          key + "⚅ Unban 「Mention」" + "\n" + \
-          key + "⚅ Cban" + "\n" + \
-          key + "⚅ Banlist" + "\n" + \
-          key + "⚅ Broadcast 「Query」" + "\n" + \
-          key + "⚅ Groupcast 「Query」" + "\n" + \
-          key + "⚅ Reply「On/Off」" + "\n" + \
-          key + "⚅ ReplyList" + "\n" + \
-          key + "⚅ Replyadd「Mention」" + "\n" + \
-          key + "⚅ Del reply「Mention」" + "\n" + \
-          key + "⚅ Tagall" + "\n" + \
-          key + "⚅ Lurking「On/Off/Reset」" + "\n" + \
-          key + "⚅ Lurking" + "\n" + \
-          key + "⚅ Gift" + "\n" + \
-          key + "⚅ Max:「no」" + "\n" + \
-          key + "⚅ Spamtext:「text」" + "\n" + \
-          key + "⚅ Spamtag 「Mention」" + "\n" + \
-          key + "⚅ Call" + "\n" + \
-          key + "Sᴇʟғʙᴏᴛ ᴠ.10\nBy: sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx" + "\n" + \
-          "http://line.me/ti/p/~maxsett"
+    helpBot =  "╭──────────╮" + "\n" + \
+          key + "│≫ รายการบล็อค" + "\n" + \
+          key + "│≫ บล็อค คท" + "\n" + \
+          key + "│≫ ลบบล็อค" + "\n" + \
+          key + "│≫ เปลี่ยนรูป" + "\n" + \
+          key + "│≫ คท" + "\n" + \
+          key + "│≫ ออก" + "\n" + \
+          key + "│≫ สติกเกอร์คนแทค" + "\n" + \
+          key + "│≫ ประกาศ:「ข้อความ」" + "\n" + \
+          key + "│≫ พูดตาม「เปิด/ปิด」" + "\n" + \
+          key + "│≫ ลบพูดตาม" + "\n" + \
+          key + "│≫ เพิ่มพูดตาม「@」" + "\n" + \
+          key + "│≫ เตะ「@」" + "\n" + \
+          key + "│≫ แทค" + "\n" + \
+          key + "│≫ เปิดอ่าน" + "\n" + \
+          key + "│≫ ปิดอ่าน" + "\n" + \
+          key + "│≫ อ่าน" + "\n" + \
+          key + "│≫ ของขวัญ" + "\n" + \
+          key + "│≫ จำนวน:「เลข」" + "\n" + \
+          key + "│≫ แสปมข้อความ:「ข้อความ」" + "\n" + \
+          key + "│≫ แทค 「@」" + "\n" + \
+          key + "│≫ รัวคอล" + "\n" + \
+          key + "╰──────────╯" + "\n" + \
+          key + "╭──────────╮" + "\n" + \
+          key + "│✒  SELFBOT-BY:MAX " + "\n" + \
+          key + "│✒ line.me/ti/p/~maxsett" + "\n" + \
+          "╰──────────╯"
     return helpBot
 
 def helptranslate():
@@ -1007,12 +987,12 @@ async def clientBot(op):
                                 temanku = client.getAllContactIds()
                                 blocked = client.getBlockedContactIds()
                                 tiket = client.reissueUserTicket()
-                                ret_ = "╔══[My Info]"
-                                ret_ +="\n\n╠ 🇹🇭 Nick: {}".format(saya.displayName)
-                                ret_ +="\n╠ 🇹🇭 Friend: {}".format(str(len(temanku)))
-                                ret_ +="\n╠ 🇹🇭 Group: {}".format(str(len(grupku)))
-                                ret_ +="\n╠ 🇹🇭 Blocked: {}".format(str(len(blocked)))
-                                ret_ +="\n╚══ Ticket: {}".format("\nline.me/ti/p/"+str(tiket))
+                                ret_ = "╔══[ ข้อมูล ]"
+                                ret_ +="\n\n╠ ✒ ชื่อ: {}".format(saya.displayName)
+                                ret_ +="\n╠ ✒ เพื่อน: {}".format(str(len(temanku)))
+                                ret_ +="\n╠ ✒ กลุ่ม: {}".format(str(len(grupku)))
+                                ret_ +="\n╠ ✒ บล็อค: {}".format(str(len(blocked)))
+                                ret_ +="\n╚ ✒ ลิ้ง: {}".format("\nline.me/ti/p/"+str(tiket))
                                 client.sendMessage(msg.to,str(ret_))
                             elif cmd == "รีบอท":
                                 client.sendMessage(to, "รอสักครู่ กำลังทำการรีบอท...")
