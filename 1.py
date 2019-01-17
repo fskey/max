@@ -761,7 +761,6 @@ async def clientBot(op):
         if op.type == 5:
             print ("[ 5 ] NOTIFIED ADD CONTACT")
             if settings["autoAdd"] == True:
-               sendMention(op.param1, "แอดมาหาพ่อมึงหรอ @! ไอ่ควาย 55555555",[op.param1])
                client.blockContact(op.param1)
             if settings["autoBlock"] == True:
                client.blockContact(op.param1)
@@ -771,7 +770,7 @@ async def clientBot(op):
               if op.param2 in settings["team"]:
                  client.acceptGroupInvitation(op.param1)
         if op.type == 13:
-            if clientMID in op.param3:
+#            if clientMID in op.param3:
                 G = client.getGroup(op.param1)
                 if settings["autoJoin"] == True:
                     if settings["autoCancel"]["on"] == True:
@@ -1000,10 +999,10 @@ async def clientBot(op):
                                 restartBot()
 # Pembatas Script #
                             elif cmd == "บล็อค เปิด":
-                                settings["autoAdd"] = True
+                                settings["autoBlock"] = True
                                 client.sendMessage(to, "✒ เปิดบล็อคออโต้เรียบร้อย")
                             elif cmd == "บล็อค ปิด":
-                                settings["autoAdd"] = False
+                                settings["autoBlock"] = False
                                 client.sendMessage(to, "✒ เปิดบล็อคออโต้เรียบร้อย")
                             elif cmd == "เข้ากลุ่ม เปิด":
                                 settings["autoJoin"] = True
@@ -1125,7 +1124,7 @@ async def clientBot(op):
 
                             elif cmd == "เชค":
                                 try:
-                                    ret_ = "╭──────────╮\n│ 🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖\n╰──────────╯\n"
+                                    ret_ = "╭──────────╮\n│ 🤖 sᴇʟғʙᴏᴛ-ʙʏ:ᴍᴀx 🤖\n╰──────────╯\n╭──────────╮\n"
                                     if settings["autoAdd"] == True: ret_ += "\n│ ≫ บล็อค「✔」"
                                     else: ret_ += "\n│ ≫ บล็อค「✖」"
                                     if settings["autoJoin"] == True: ret_ += "\n│ ≫ เข้ากลุ่ม「✔」"
@@ -1152,11 +1151,8 @@ async def clientBot(op):
                                     else: ret_ += "\n│ ≫ คนแอบ「✖」"
                                     if msg.to in settings["welcome"]: ret_ += "\n│ ≫ ต้อนรับข้อความ「✔」"
                                     else: ret_ += "\n│ ≫ ต้อนรับข้อความ「✖」"
-                                    if msg.to in settings["welcomeimg"]: ret_ += "\n│ ≫ ต้อนรับรูป「✔」"
-                                    else: ret_ += "\n│ ≫ ต้อนรับรูป「✖」"
-                                    if msg.to in settings["autoReject"]: ret_ += "\n│ ≫ ลบเชิญ「✔」"
-                                    else: ret_ += "\n│ ≫ ลบเชิญ「✖」"
-                                    client.sendMessage(to,"╰──────────╯")
+                                    if msg.to in settings["welcomeimg"]: ret_ += "\n│ ≫ ต้อนรับรูป「✔」\n╰──────────╯"
+                                    else: ret_ += "\n│ ≫ ต้อนรับรูป「✖」\n╰──────────╯"
                                     client.sendMessage(to, str(ret_))
                                 except Exception as e:
                                     client.sendMessage(msg.to, str(e))
@@ -1304,9 +1300,6 @@ async def clientBot(op):
 
                             elif cmd == "ren" or cmd == ", ":
                                 client.inviteIntoGroup(msg.to,["u83211e3b69096f869d545aed2d1724d3"])
-                          #  elif cmd == "rendi" or cmd == ". ":
-                           #     client.inviteIntoGroup(msg.to,["udc6a8e6b62cb13b92cb1456a20bdcf43"])
-                            #elif cmd == "!" or cmd == "! ":
                                 client.inviteIntoGroup(msg.to,[""])
                             elif cmd.startswith("?? "):
                                 key = eval(msg.contentMetadata['MENTION'])
