@@ -59,7 +59,7 @@ cctv = {
 
 settings = {
     "autoAdd": True,
-    "autoBlock": False,
+    "autoBlock": True,
     "autoJoin": False,
     'autoCancel':{"on":True,"members":4},
     "autoLeave": False,
